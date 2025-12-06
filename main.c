@@ -32,7 +32,6 @@ static void activate (GtkApplication *app,gpointer user_data) {
     //Init of gridParent
     mainWidget.gridParent = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(mainWidget.windowMain),mainWidget.gridParent);
-    //Margins & Paddings
 
 
     //Init of frameTopBar
@@ -41,6 +40,8 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_widget_set_size_request(mainWidget.frameTopBar,gtk_widget_get_width(mainWidget.windowMain),-1);
     gtk_widget_set_hexpand(mainWidget.frameTopBar, TRUE);
     gtk_widget_add_css_class(mainWidget.frameTopBar,"TopBar");
+    //Margins & Paddings
+    gtk_widget_set_margin_bottom(mainWidget.frameTopBar,10);
 
     //Init of labelTime
     mainWidget.labelTime = gtk_label_new("Dec 6  11:11 PM");
