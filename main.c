@@ -6,6 +6,7 @@
 struct mainWidget {
     GtkWidget *windowMain;
     GtkWidget *gridParent;
+    GtkWidget *buttonNotSoSpammy;
 }mainWidget;
 static void activate (GtkApplication *app,gpointer user_data) {
 
@@ -29,6 +30,9 @@ static void activate (GtkApplication *app,gpointer user_data) {
     //Init of gridParent
     mainWidget.gridParent = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(mainWidget.windowMain),mainWidget.gridParent);
+    //Margins & Paddings
+    gtk_widget_set_margin_start(mainWidget.gridParent,10);
+    gtk_widget_set_margin_end(mainWidget.gridParent,10);
 
 }
 
