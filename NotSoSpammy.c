@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <gtk/gtk.h>
 
+
 struct loginWidgets {
     GtkWidget *windowLoginScreen;
     GtkWidget *gridParentLogin;
@@ -17,11 +18,19 @@ struct loginWidgets {
 
 }login;
 void NotSoSpammy() {
-     //LOGIN SCREEN FOR THE MAIN APP
-    login.windowLoginScreen = gtk_window_new();
-    gtk_window_set_title(GTK_WINDOW(login.windowLoginScreen),"LOGIN");
-    gtk_window_set_default_size(GTK_WINDOW(login.windowLoginScreen),350,150);
-    gtk_window_present(GTK_WINDOW(login.windowLoginScreen));
+     struct moveableFrame {
+    GtkWidget *overlay;        // Container that holds the frame
+    GtkWidget *box;            // Main container
+    GtkWidget *titleBar;       // Top bar with title and close button
+    GtkWidget *titleLabel;     // Title text
+    GtkWidget *closeButton;    // Close button
+    GtkWidget *contentArea;    // Area for your content
+
+    // For dragging
+    double drag_start_x;
+    double drag_start_y;
+    GtkGesture *drag_gesture;
+};
 
     //Implementation of gridParentLogin
     login.gridParentLogin = gtk_grid_new();
@@ -65,7 +74,7 @@ void NotSoSpammy() {
     //Implementation of buttonLogin
     login.buttonLogin = gtk_button_new_with_label("Login");
     gtk_grid_attach(GTK_GRID(login.gridParentLogin),login.buttonLogin, 2, 2, 6, 1);
-    g_signal_connect(login.buttonLogin, "clicked",G_CALLBACK(checkLogin),NULL);
+    // g_signal_connect(login.buttonLogin, "clicked",G_CALLBACK(checkLogin),NULL);
 
     //Margins & Padding
 

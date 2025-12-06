@@ -19,6 +19,8 @@ link_directories(${CURL_LIBRARY_DIRS})
 add_executable(illusionOS main.c
         NotSoSpammy.c
         NotSoSpammy.h
+        SendyMaily.c
+        SendyMaily.h
 )
 
 target_link_libraries(${PROJECT_NAME}
