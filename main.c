@@ -8,6 +8,7 @@ struct mainWidget {
     GtkWidget *gridParent;
     GtkWidget *buttonNotSoSpammy;
     GtkWidget *frameTopBar;
+    GtkWidget *labelTime;
 }mainWidget;
 static void activate (GtkApplication *app,gpointer user_data) {
 
@@ -38,6 +39,10 @@ static void activate (GtkApplication *app,gpointer user_data) {
     //Init of frameTopBar
     mainWidget.frameTopBar = gtk_frame_new(NULL);
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.frameTopBar,0,0,100,1);
+
+    //Init of labelTime
+    mainWidget.labelTime = gtk_label_new("Dec 6  11:11 PM");
+    gtk_frame_set_child(GTK_FRAME(mainWidget.frameTopBar),mainWidget.labelTime);
 
     //Init of buttonNotSoSpammy
     mainWidget.buttonNotSoSpammy = gtk_button_new();
