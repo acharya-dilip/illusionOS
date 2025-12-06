@@ -1,9 +1,13 @@
+button{
+    margin: 10px;
+
+}
 .Desktop{
     background-image: url("source/wallpaper.png");
     background-position: center;
 }
 .TopBar{
-    background-color: gray;
+    background-color: darkgray;
     border-bottom: 1px solid #666;
     border-radius: 0;
 }

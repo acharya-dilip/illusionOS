@@ -51,13 +51,13 @@ static void activate (GtkApplication *app,gpointer user_data) {
     //Init of buttonNotSoSpammy
     mainWidget.buttonNotSoSpammy = gtk_button_new();
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoSpammy,0,1,1,2);
-    gtk_widget_set_size_request(mainWidget.buttonNotSoSpammy,64,64);
+    gtk_widget_set_size_request(mainWidget.buttonNotSoSpammy,84,84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy,"IconNotSoSpammy");
 
     //Init of buttonSendyMaily
     mainWidget.buttonSendyMaily = gtk_button_new();
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonSendyMaily,1,1,1,2);
-    gtk_widget_set_size_request(mainWidget.buttonSendyMaily,64,64);
+    gtk_widget_set_size_request(mainWidget.buttonSendyMaily,84,84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy,"IconSendyMaily");
 
 
