@@ -3,6 +3,7 @@
 #include <curl/curl.h>
 
 #include "NotSoSpammy.h"
+#include "SendyMaily.h"
 
 
 struct mainWidget {
@@ -62,6 +63,8 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonSendyMaily,1,1,1,2);
     gtk_widget_set_size_request(mainWidget.buttonSendyMaily,84,84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy,"IconSendyMaily");
+    g_signal_connect(mainWidget.buttonSendyMaily,"clicked",G_CALLBACK(SendyMaily),NULL);
+
 
 
 }
