@@ -70,7 +70,7 @@ static void activate (GtkApplication *app,gpointer user_data) {
 
     //Init of buttonThreeEyedRaven
     mainWidget.buttonThreeEyedRaven = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonThreeEyedRaven,1,2,1,2);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonThreeEyedRaven,0,2,1,2);
     gtk_widget_set_size_request(mainWidget.buttonThreeEyedRaven,84,84);
     gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven,"DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven,"IconSendyMaily");
