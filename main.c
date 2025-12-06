@@ -42,7 +42,6 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_widget_set_hexpand(mainWidget.frameTopBar, TRUE);
     gtk_widget_add_css_class(mainWidget.frameTopBar,"TopBar");
     //Margins & Paddings
-    gtk_widget_set_margin_bottom(mainWidget.frameTopBar,10);
 
     //Init of labelTime
     mainWidget.labelTime = gtk_label_new("Dec 6  11:11 PM");
