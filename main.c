@@ -37,6 +37,7 @@ static void activate (GtkApplication *app,gpointer user_data) {
     //Init of buttonNotSoSpammy
     mainWidget.buttonNotSoSpammy = gtk_button_new();
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoSpammy,0,0,1,2);
+    gtk_widget_set_size_request(mainWidget.buttonNotSoSpammy,64,64);
 
 
 }
