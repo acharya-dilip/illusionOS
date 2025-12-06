@@ -9,6 +9,16 @@ struct mainWidget {
 }mainWidget;
 static void activate (GtkApplication *app,gpointer user_data) {
 
+    //Connects the styles.css file to the software
+    GtkCssProvider *provider = gtk_css_provider_new();
+    gtk_css_provider_load_from_path(provider, "styles.css");
+
+    gtk_style_context_add_provider_for_display(
+        gdk_display_get_default(),
+        GTK_STYLE_PROVIDER(provider),
+        GTK_STYLE_PROVIDER_PRIORITY_USER
+    );
+
     //Init of windowMain
     mainWidget.windowMain = gtk_application_window_new(app);
     gtk_window_set_title(GTK_WINDOW(mainWidget.windowMain),"IllusionOS");
