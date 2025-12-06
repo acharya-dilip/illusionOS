@@ -34,6 +34,11 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_widget_set_margin_start(mainWidget.gridParent,10);
     gtk_widget_set_margin_end(mainWidget.gridParent,10);
 
+    //Init of buttonNotSoSpammy
+    mainWidget.buttonNotSoSpammy = gtk_button_new();
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoSpammy,0,0,1,2);
+
+
 }
 
 
