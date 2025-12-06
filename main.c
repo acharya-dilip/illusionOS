@@ -24,6 +24,7 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_window_set_title(GTK_WINDOW(mainWidget.windowMain),"IllusionOS");
     gtk_window_present(GTK_WINDOW(mainWidget.windowMain));
     gtk_window_fullscreen(GTK_WINDOW(mainWidget.windowMain));
+    gtk_widget_add_css_class(mainWidget.windowMain,"Desktop");
 
     //Init of gridParent
     mainWidget.gridParent = gtk_grid_new();
