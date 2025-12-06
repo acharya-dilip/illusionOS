@@ -187,7 +187,7 @@ void NotSoSpammy(){
 
 
     //LOGIN SCREEN FOR THE MAIN APP
-    windowLoginScreen = gtk_application_window_new(app);
+    windowLoginScreen = gtk_window_new();
     gtk_window_set_title(GTK_WINDOW(windowLoginScreen),"LOGIN");
     gtk_window_set_default_size(GTK_WINDOW(windowLoginScreen),350,150);
     gtk_window_present(GTK_WINDOW(windowLoginScreen));
