@@ -55,6 +55,7 @@ static void activate (GtkApplication *app,gpointer user_data) {
     mainWidget.buttonNotSoSpammy = gtk_button_new();
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoSpammy,0,1,1,2);
     gtk_widget_set_size_request(mainWidget.buttonNotSoSpammy,84,84);
+    gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy,"DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy,"IconNotSoSpammy");
     g_signal_connect(mainWidget.buttonNotSoSpammy,"clicked",G_CALLBACK(NotSoSpammy),NULL);
 
@@ -62,7 +63,8 @@ static void activate (GtkApplication *app,gpointer user_data) {
     mainWidget.buttonSendyMaily = gtk_button_new();
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonSendyMaily,1,1,1,2);
     gtk_widget_set_size_request(mainWidget.buttonSendyMaily,84,84);
-    gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy,"IconSendyMaily");
+    gtk_widget_add_css_class(mainWidget.buttonSendyMaily,"DesktopIcon");
+    gtk_widget_add_css_class(mainWidget.buttonSendyMaily,"IconSendyMaily");
     g_signal_connect(mainWidget.buttonSendyMaily,"clicked",G_CALLBACK(SendyMaily),NULL);
 
 
