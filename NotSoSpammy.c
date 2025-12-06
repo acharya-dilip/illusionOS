@@ -8,6 +8,7 @@
 #include<gtk/gtk.h>
 #include <curl/curl.h>
 
+
 void checkLogin(GtkApplication *app,gpointer user_data);
 static void windowMain();
 void editMail(GtkApplication *app, gpointer user_data);
