@@ -9,11 +9,13 @@
 #include <curl/curl.h>
 
 
+struct SendyMaily {
+    GtkWidget *entryGmail;
+    GtkWidget *entryPassword;
+    GtkWidget *windowLoginScreen;
+    GtkWidget *checkboxSaveLogin;
+}SendyMailyStuff;
 
-GtkWidget *entryGmail;
-GtkWidget *entryPassword;
-GtkWidget *windowLoginScreen;
-GtkWidget *checkboxSaveLogin;
 
 
 void SendyMaily () {
@@ -28,14 +30,14 @@ void SendyMaily () {
 
 
     //Implementation of the login screen window
-    windowLoginScreen = gtk_window_new();
-    gtk_window_set_title(GTK_WINDOW(windowLoginScreen),"LOGIN");
-    gtk_window_set_default_size(GTK_WINDOW(windowLoginScreen),350,150);
-    gtk_window_present(GTK_WINDOW(windowLoginScreen));
+    SendyMailyStuff.windowLoginScreen = gtk_window_new();
+    gtk_window_set_title(GTK_WINDOW(SendyMailyStuff.windowLoginScreen),"LOGIN");
+    gtk_window_set_default_size(GTK_WINDOW(SendyMailyStuff.windowLoginScreen),350,150);
+    gtk_window_present(GTK_WINDOW(SendyMailyStuff.windowLoginScreen));
 
     //Implementation of the parent grid for login Window
     gridParentLoginScreen = gtk_grid_new();
-    gtk_window_set_child(GTK_WINDOW(windowLoginScreen),gridParentLoginScreen);
+    gtk_window_set_child(GTK_WINDOW(SendyMailyStuff.windowLoginScreen),gridParentLoginScreen);
     //Margins & Paddings
     gtk_widget_set_halign(gridParentLoginScreen, GTK_ALIGN_CENTER);
     gtk_widget_set_valign(gridParentLoginScreen, GTK_ALIGN_CENTER);
@@ -52,12 +54,12 @@ void SendyMaily () {
 
 
     //Implementation of entry Gmail
-    entryGmail = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(gridParentLoginScreen),entryGmail,1,0,3,1);
+    SendyMailyStuff.entryGmail = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(gridParentLoginScreen),SendyMailyStuff.entryGmail,1,0,3,1);
     //Margins & Paddings
-    gtk_widget_set_size_request(entryGmail,270,-1);
-    gtk_widget_set_margin_start(entryGmail,10);
-    gtk_widget_set_margin_end(entryGmail,10);
+    gtk_widget_set_size_request(SendyMailyStuff.entryGmail,270,-1);
+    gtk_widget_set_margin_start(SendyMailyStuff.entryGmail,10);
+    gtk_widget_set_margin_end(SendyMailyStuff.entryGmail,10);
 
 
 
@@ -72,24 +74,24 @@ void SendyMaily () {
 
 
     //Implementation of entry Password
-    entryPassword = gtk_entry_new();
-    gtk_entry_set_visibility(GTK_ENTRY(entryPassword),FALSE);
-    gtk_grid_attach(GTK_GRID(gridParentLoginScreen),entryPassword,1,1,3,1);
+    SendyMailyStuff.entryPassword = gtk_entry_new();
+    gtk_entry_set_visibility(GTK_ENTRY(SendyMailyStuff.entryPassword),FALSE);
+    gtk_grid_attach(GTK_GRID(gridParentLoginScreen),SendyMailyStuff.entryPassword,1,1,3,1);
     //Margins & Paddings
-    gtk_widget_set_size_request(entryPassword,270,-1);
-    gtk_widget_set_margin_end(entryPassword,10);
-    gtk_widget_set_margin_start(entryPassword,10);
+    gtk_widget_set_size_request(SendyMailyStuff.entryPassword,270,-1);
+    gtk_widget_set_margin_end(SendyMailyStuff.entryPassword,10);
+    gtk_widget_set_margin_start(SendyMailyStuff.entryPassword,10);
 
     //Function to fetch the login info
     fetchLoginInfo();
 
 
     //Implementation of save login info checkbox
-    checkboxSaveLogin = gtk_check_button_new_with_label("Save Login Info");
-    gtk_grid_attach(GTK_GRID(gridParentLoginScreen),checkboxSaveLogin,1,2,1,1);
-    g_signal_connect(checkboxSaveLogin,"toggled",G_CALLBACK(saveLoginInfo),NULL);
+    SendyMailyStuff.checkboxSaveLogin = gtk_check_button_new_with_label("Save Login Info");
+    gtk_grid_attach(GTK_GRID(gridParentLoginScreen),SendyMailyStuff.checkboxSaveLogin,1,2,1,1);
+    g_signal_connect(SendyMailyStuff.checkboxSaveLogin,"toggled",G_CALLBACK(saveLoginInfo),NULL);
     //Margins & Paddings
-    gtk_widget_set_margin_start(checkboxSaveLogin,10);
+    gtk_widget_set_margin_start(SendyMailyStuff.checkboxSaveLogin,10);
 
 
 
@@ -124,13 +126,13 @@ void checkLogin() {
         curl_easy_setopt(curl,CURLOPT_READFUNCTION,NULL);
 
         //sending the credentials
-        curl_easy_setopt(curl,CURLOPT_USERNAME,gtk_editable_get_text(GTK_EDITABLE(entryGmail)));
-        curl_easy_setopt(curl,CURLOPT_PASSWORD,gtk_editable_get_text(GTK_EDITABLE(entryPassword)));
+        curl_easy_setopt(curl,CURLOPT_USERNAME,gtk_editable_get_text(GTK_EDITABLE(SendyMailyStuff.entryGmail)));
+        curl_easy_setopt(curl,CURLOPT_PASSWORD,gtk_editable_get_text(GTK_EDITABLE(SendyMailyStuff.entryPassword)));
 
         res = curl_easy_perform(curl);
 
         if (res == CURLE_OK) {
-            gtk_widget_set_visible(windowLoginScreen,FALSE);
+            gtk_widget_set_visible(SendyMailyStuff.windowLoginScreen,FALSE);
             printf("CURLE IS OK");
             displaySendyMaily();
         }
@@ -211,7 +213,7 @@ void displaySendyMaily() {
     //Implementation of the from gmail entry
     entryGmailFrom=gtk_entry_new();
     gtk_grid_attach(GTK_GRID(gridParent),entryGmailFrom,1,1,1,1);
-    gtk_editable_set_text(GTK_EDITABLE(entryGmailFrom),gtk_editable_get_text(GTK_EDITABLE(entryGmail)));
+    gtk_editable_set_text(GTK_EDITABLE(entryGmailFrom),gtk_editable_get_text(GTK_EDITABLE(SendyMailyStuff.entryGmail)));
     gtk_editable_set_editable(GTK_EDITABLE(entryGmailFrom),FALSE);
     //Margins & Paddings
     gtk_widget_set_margin_end(entryGmailFrom,10);
@@ -273,7 +275,7 @@ void fetchMail() {
                 "\r\n"
                 "%s\r\n",
                 gtk_editable_get_text(GTK_EDITABLE(entryGmailTo)),
-                gtk_editable_get_text(GTK_EDITABLE(entryGmail)),
+                gtk_editable_get_text(GTK_EDITABLE(SendyMailyStuff.entryGmail)),
                 gtk_editable_get_text(GTK_EDITABLE(entryGmailSubject)),
                 temp);
 
@@ -289,10 +291,10 @@ void sendMail() {
         curl_easy_setopt(curl,CURLOPT_URL,"smtp://smtp.gmail.com:587");
         curl_easy_setopt(curl,CURLOPT_USE_SSL,(long)CURLUSESSL_ALL);
         //sender credentials
-        curl_easy_setopt(curl,CURLOPT_USERNAME,gtk_editable_get_text(GTK_EDITABLE(entryGmail)));
-        curl_easy_setopt(curl,CURLOPT_PASSWORD,gtk_editable_get_text(GTK_EDITABLE(entryPassword)));
+        curl_easy_setopt(curl,CURLOPT_USERNAME,gtk_editable_get_text(GTK_EDITABLE(SendyMailyStuff.entryGmail)));
+        curl_easy_setopt(curl,CURLOPT_PASSWORD,gtk_editable_get_text(GTK_EDITABLE(SendyMailyStuff.entryPassword)));
         //sender mail
-        curl_easy_setopt(curl,CURLOPT_MAIL_FROM,gtk_editable_get_text(GTK_EDITABLE(entryGmail)));
+        curl_easy_setopt(curl,CURLOPT_MAIL_FROM,gtk_editable_get_text(GTK_EDITABLE(SendyMailyStuff.entryGmail)));
         //Reciver mail
         struct curl_slist *recipients=NULL;
         recipients = curl_slist_append(recipients,gtk_editable_get_text(GTK_EDITABLE(entryGmailTo)));
@@ -317,13 +319,13 @@ void sendMail() {
 }
 
 void closeApp() {
-    gtk_window_destroy(GTK_WINDOW(windowLoginScreen));
+    gtk_window_destroy(GTK_WINDOW(SendyMailyStuff.windowLoginScreen));
 }
 void saveLoginInfo() {
     FILE *file = fopen("logininfo.txt","w");
     fprintf(file,
         "%s %s"
-        ,gtk_editable_get_text(GTK_EDITABLE(entryGmail)),gtk_editable_get_text(GTK_EDITABLE(entryPassword)));
+        ,gtk_editable_get_text(GTK_EDITABLE(SendyMailyStuff.entryGmail)),gtk_editable_get_text(GTK_EDITABLE(SendyMailyStuff.entryPassword)));
     fclose(file);
 
 }
@@ -345,8 +347,8 @@ void fetchLoginInfo() {
     fscanf(file,
         "%s %s",
         &gmail,&password);
-    gtk_editable_set_text(GTK_EDITABLE(entryGmail),gmail);
-    gtk_editable_set_text(GTK_EDITABLE(entryPassword),password);
+    gtk_editable_set_text(GTK_EDITABLE(SendyMailyStuff.entryGmail),gmail);
+    gtk_editable_set_text(GTK_EDITABLE(SendyMailyStuff.entryPassword),password);
 
 }
 
