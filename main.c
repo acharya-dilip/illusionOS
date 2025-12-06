@@ -6,11 +6,14 @@
 struct mainWidget {
     GtkWidget *windowMain;
     GtkWidget *gridParent;
-};
+}mainWidget;
 static void activate (GtkApplication *app,gpointer user_data) {
 
-
-
+    //Init of windowMain
+    mainWidget.windowMain = gtk_application_window_new(app);
+    gtk_window_set_title(GTK_WINDOW(mainWidget.windowMain),"IllusionOS");
+    gtk_window_present(GTK_WINDOW(mainWidget.windowMain));
+    gtk_window_fullscreen(GTK_WINDOW(mainWidget.windowMain));
 
 
 }
