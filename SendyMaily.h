@@ -8,12 +8,12 @@
 void SendyMaily ();
 
 void displaySendyMaily();
-void checkLogin();
-void sendMail();
-void fetchMail();
-void closeApp();
-void saveLoginInfo();
-void logout();
-void fetchLoginInfo();
+void SendyMailycheckLogin();
+void SendyMailysendMail();
+void SendyMailyfetchMail();
+void SendyMailycloseApp();
+void SendyMailysaveLoginInfo();
+void SendyMailylogout();
+void SendyMailyfetchLoginInfo();
 
 #endif //ILLUSIONOS_SENDYMAILY_H

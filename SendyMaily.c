@@ -83,13 +83,13 @@ void SendyMaily () {
     gtk_widget_set_margin_start(SendyMailyStuff.entryPassword,10);
 
     //Function to fetch the login info
-    fetchLoginInfo();
+    SendyMailyfetchLoginInfo();
 
 
     //Implementation of save login info checkbox
     SendyMailyStuff.checkboxSaveLogin = gtk_check_button_new_with_label("Save Login Info");
     gtk_grid_attach(GTK_GRID(gridParentLoginScreen),SendyMailyStuff.checkboxSaveLogin,1,2,1,1);
-    g_signal_connect(SendyMailyStuff.checkboxSaveLogin,"toggled",G_CALLBACK(saveLoginInfo),NULL);
+    g_signal_connect(SendyMailyStuff.checkboxSaveLogin,"toggled",G_CALLBACK(SendyMailysaveLoginInfo),NULL);
     //Margins & Paddings
     gtk_widget_set_margin_start(SendyMailyStuff.checkboxSaveLogin,10);
 
@@ -98,7 +98,7 @@ void SendyMaily () {
     //Implementation of button login
     buttonLogin = gtk_button_new_with_label("LOGIN");
     gtk_grid_attach(GTK_GRID(gridParentLoginScreen),buttonLogin,1,3,4,1);
-    g_signal_connect(buttonLogin,"clicked",G_CALLBACK(checkLogin),NULL);
+    g_signal_connect(buttonLogin,"clicked",G_CALLBACK(SendyMailycheckLogin),NULL);
     //Margins & Paddings
     gtk_widget_set_halign(buttonLogin,GTK_ALIGN_END);
     gtk_widget_set_size_request(buttonLogin,270,-1);
@@ -109,7 +109,7 @@ void SendyMaily () {
 
 }
 
-void checkLogin() {
+void SendyMailycheckLogin() {
     printf("Is Checking the login");
     CURL *curl=curl_easy_init();
     CURLcode res;
@@ -160,7 +160,7 @@ void displaySendyMaily() {
     gtk_window_set_default_size(GTK_WINDOW(windowSendyMaily),400,400);
     gtk_window_present(GTK_WINDOW(windowSendyMaily));
     //Call closeApp function when windowSendyMail get's closed
-    g_signal_connect(windowSendyMaily,"destroy",G_CALLBACK(closeApp),NULL);
+    g_signal_connect(windowSendyMaily,"destroy",G_CALLBACK(SendyMailycloseApp),NULL);
 
     //Implementation of headerBarSendyMaily
     headerbarSendyMaily = gtk_header_bar_new();
@@ -171,7 +171,7 @@ void displaySendyMaily() {
     //Implementation of buttonLogout
     buttonLogout = gtk_button_new_with_label("⏻");
     gtk_header_bar_pack_start(GTK_HEADER_BAR(headerbarSendyMaily),buttonLogout);
-    g_signal_connect(buttonLogout,"clicked",G_CALLBACK(logout),NULL);
+    g_signal_connect(buttonLogout,"clicked",G_CALLBACK(SendyMailylogout),NULL);
 
     //Implementation of gridparent
     gridParent =gtk_grid_new();
@@ -246,7 +246,7 @@ void displaySendyMaily() {
     buttonSendMail=gtk_button_new_with_label("SEND");
     gtk_grid_attach(GTK_GRID(gridParent),buttonSendMail,0,4,2,1);
     gtk_widget_set_size_request(buttonSendMail,380,-1);
-    g_signal_connect(buttonSendMail,"clicked",G_CALLBACK(sendMail),NULL);
+    g_signal_connect(buttonSendMail,"clicked",G_CALLBACK(SendyMailysendMail),NULL);
     //Margins & paddings
     gtk_widget_set_margin_start(buttonSendMail,10);
     gtk_widget_set_margin_end(buttonSendMail,10);
@@ -256,7 +256,7 @@ void displaySendyMaily() {
 
 }
 
-void fetchMail() {
+void SendyMailyfetchMail() {
     //Extracts text from the textview
     GtkTextBuffer *mailbody = gtk_text_view_get_buffer(GTK_TEXT_VIEW(textviewGmailBody));
     GtkTextIter start, end;
@@ -283,7 +283,7 @@ void fetchMail() {
     }
 }
 
-void sendMail() {
+void SendyMailysendMail() {
     CURL *curl=curl_easy_init();
     if (!curl) return;
     if (curl) {
@@ -300,7 +300,7 @@ void sendMail() {
         recipients = curl_slist_append(recipients,gtk_editable_get_text(GTK_EDITABLE(entryGmailTo)));
         curl_easy_setopt(curl,CURLOPT_MAIL_RCPT,recipients);
         //Sending email payload
-        fetchMail();
+        SendyMailyfetchMail();
         FILE *payload = fopen("email.txt","r");
         curl_easy_setopt(curl,CURLOPT_READDATA,payload);
         curl_easy_setopt(curl,CURLOPT_UPLOAD,1L);
@@ -318,10 +318,10 @@ void sendMail() {
     }
 }
 
-void closeApp() {
+void SendyMailycloseApp() {
     gtk_window_destroy(GTK_WINDOW(SendyMailyStuff.windowLoginScreen));
 }
-void saveLoginInfo() {
+void SendyMailysaveLoginInfo() {
     FILE *file = fopen("logininfo.txt","w");
     fprintf(file,
         "%s %s"
@@ -330,17 +330,17 @@ void saveLoginInfo() {
 
 }
 
-void logout() {
+void SendyMailylogout() {
     FILE *file = fopen("logininfo.txt","w");
     fprintf(file,
         "%s %s"
         ,"","");
     fclose(file);
-    closeApp();
+    SendyMailycloseApp();
 
 }
 
-void fetchLoginInfo() {
+void SendyMailyfetchLoginInfo() {
     char gmail[50];
     char password[50];
     FILE *file = fopen("logininfo.txt","r");
