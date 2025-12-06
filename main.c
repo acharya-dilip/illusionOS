@@ -7,6 +7,7 @@ struct mainWidget {
     GtkWidget *windowMain;
     GtkWidget *gridParent;
     GtkWidget *buttonNotSoSpammy;
+    GtkWidget *frameTopBar;
 }mainWidget;
 static void activate (GtkApplication *app,gpointer user_data) {
 
@@ -34,9 +35,13 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_widget_set_margin_start(mainWidget.gridParent,10);
     gtk_widget_set_margin_end(mainWidget.gridParent,10);
 
+    //Init of frameTopBar
+    mainWidget.frameTopBar = gtk_frame_new(NULL);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.frameTopBar,0,0,100,1);
+
     //Init of buttonNotSoSpammy
     mainWidget.buttonNotSoSpammy = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoSpammy,0,0,1,2);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoSpammy,0,1,1,2);
     gtk_widget_set_size_request(mainWidget.buttonNotSoSpammy,64,64);
 
 
