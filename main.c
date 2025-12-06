@@ -40,7 +40,7 @@ static void activate (GtkApplication *app,gpointer user_data) {
     mainWidget.boxTopBar = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,0);
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.boxTopBar,0,0,100,1);
     gtk_widget_set_size_request(mainWidget.boxTopBar,gtk_widget_get_width(mainWidget.windowMain),-1);
-    gtk_widget_set_halign(mainWidget.boxTopBar,GTK_ALIGN_CENTER);
+
 
     //Init of labelTime
     mainWidget.labelTime = gtk_label_new("Dec 6  11:11 PM");
