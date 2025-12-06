@@ -2,7 +2,16 @@
 #include <gtk/gtk.h>
 #include <curl/curl.h>
 
+
+struct mainWidget {
+    GtkWidget *windowMain;
+    GtkWidget *gridParent;
+};
 static void activate (GtkApplication *app,gpointer user_data) {
+
+
+
+
 
 }
 
