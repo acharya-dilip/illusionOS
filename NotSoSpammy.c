@@ -3,3 +3,7 @@
 //
 
 #include "NotSoSpammy.h"
+
+void NotSoSpammy() {
+
+}
