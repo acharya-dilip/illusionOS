@@ -8,14 +8,7 @@
 #include <gtk/gtk.h>
 #include <curl/curl.h>
 
-void displaySendyMaily();
-void checkLogin();
-void sendMail();
-void fetchMail();
-void closeApp();
-void saveLoginInfo();
-void logout();
-void fetchLoginInfo();
+
 
 GtkWidget *entryGmail;
 GtkWidget *entryPassword;
@@ -115,6 +108,7 @@ void SendyMaily () {
 }
 
 void checkLogin() {
+    printf("Is Checking the login");
     CURL *curl=curl_easy_init();
     CURLcode res;
     if (!curl) return;
@@ -137,6 +131,7 @@ void checkLogin() {
 
         if (res == CURLE_OK) {
             gtk_widget_set_visible(windowLoginScreen,FALSE);
+            printf("CURLE IS OK");
             displaySendyMaily();
         }
         curl_easy_cleanup(curl);
