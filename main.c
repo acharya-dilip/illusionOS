@@ -2,6 +2,8 @@
 #include <gtk/gtk.h>
 #include <curl/curl.h>
 
+#include "NotSoSpammy.h"
+
 
 struct mainWidget {
     GtkWidget *windowMain;
@@ -53,6 +55,7 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoSpammy,0,1,1,2);
     gtk_widget_set_size_request(mainWidget.buttonNotSoSpammy,84,84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy,"IconNotSoSpammy");
+    g_signal_connect(mainWidget.buttonNotSoSpammy,"clicked",G_CALLBACK(NotSoSpammy),NULL);
 
     //Init of buttonSendyMaily
     mainWidget.buttonSendyMaily = gtk_button_new();

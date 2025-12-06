@@ -3,7 +3,8 @@
 //
 
 #include "NotSoSpammy.h"
+#include <stdio.h>
 
 void NotSoSpammy() {
-
+    printf("NotSoSpammy Executed");
 }
