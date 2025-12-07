@@ -20,7 +20,6 @@ struct mainWidget {
     GtkWidget *gridParent;
     GtkWidget *frameTopBar;
     GtkWidget *labelTime;
-    GtkWidget *buttonNotSoNotSecure;
     GtkWidget *buttonNotSoNotFallty;
     GtkWidget *buttonJustaGuiFramework;
     GtkWidget *buttonNotSoSpacy;
@@ -100,14 +99,14 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
 
     //Init of buttonNotSoNotSecure
-    mainWidget.buttonNotSoNotSecure = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonNotSoNotSecure, 1, 2, 1, 1);
-    gtk_widget_set_size_request(mainWidget.buttonNotSoNotSecure, 84, 84);
-    gtk_widget_add_css_class(mainWidget.buttonNotSoNotSecure, "DesktopIcon");
-    gtk_widget_add_css_class(mainWidget.buttonNotSoNotSecure, "IconNotSoNotSecure");
-    g_signal_connect(mainWidget.buttonNotSoNotSecure, "clicked", G_CALLBACK(NotSoNotSecure), NULL);
-    gtk_widget_set_hexpand(mainWidget.buttonNotSoNotSecure,FALSE);
-    gtk_widget_set_vexpand(mainWidget.buttonNotSoNotSecure,FALSE);
+    GtkWidget *buttonNotSoNotSecure = gtk_button_new();
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),buttonNotSoNotSecure, 1, 2, 1, 1);
+    gtk_widget_set_size_request(buttonNotSoNotSecure, 84, 84);
+    gtk_widget_add_css_class(buttonNotSoNotSecure, "DesktopIcon");
+    gtk_widget_add_css_class(buttonNotSoNotSecure, "IconNotSoNotSecure");
+    g_signal_connect(buttonNotSoNotSecure, "clicked", G_CALLBACK(NotSoNotSecure), NULL);
+    gtk_widget_set_hexpand(buttonNotSoNotSecure,FALSE);
+    gtk_widget_set_vexpand(buttonNotSoNotSecure,FALSE);
 
     //Init of buttonNotSoNotFallty
     mainWidget.buttonNotSoNotFallty = gtk_button_new();
