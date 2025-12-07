@@ -13,6 +13,7 @@
 #include "SendyMaily.h"
 #include "ThreeEyedRaven.h"
 
+void fetchTimeTopBar();
 //Global Variable
 GtkWindow *windowMainDesktop;
 struct mainWidget {
@@ -166,6 +167,12 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
 }
 
+void fetchTimeTopBar() {
+    time_t now = time(NULL);
+    struct tm *t = localtime(&now);
+    int hour = t->tm_hour;
+    int minute = t->tm_min;
+}
 
 int main(int argc, char **argv) {
     GtkApplication *app;
