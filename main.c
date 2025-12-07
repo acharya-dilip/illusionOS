@@ -20,7 +20,6 @@ struct mainWidget {
     GtkWidget *gridParent;
     GtkWidget *frameTopBar;
     GtkWidget *labelTime;
-    GtkWidget *buttonNotSoSpacy;
     GtkWidget *buttonNotSoNotSpooky;
 } mainWidget;
 
@@ -127,14 +126,14 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_vexpand(buttonJustaGuiFramework,FALSE);
 
     //Init of buttonNotSoSpacy
-    mainWidget.buttonNotSoSpacy = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonNotSoSpacy, 0, 4, 1, 1);
-    gtk_widget_set_size_request(mainWidget.buttonNotSoSpacy, 84, 84);
-    gtk_widget_add_css_class(mainWidget.buttonNotSoSpacy, "DesktopIcon");
-    gtk_widget_add_css_class(mainWidget.buttonNotSoSpacy, "IconNotSoSpacy");
-    g_signal_connect(mainWidget.buttonNotSoSpacy, "clicked", G_CALLBACK(NotSoSpacy), NULL);
-    gtk_widget_set_hexpand(mainWidget.buttonNotSoSpacy,FALSE);
-    gtk_widget_set_vexpand(mainWidget.buttonNotSoSpacy,FALSE);
+    GtkWidget *buttonNotSoSpacy = gtk_button_new();
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), buttonNotSoSpacy, 0, 4, 1, 1);
+    gtk_widget_set_size_request(buttonNotSoSpacy, 84, 84);
+    gtk_widget_add_css_class(buttonNotSoSpacy, "DesktopIcon");
+    gtk_widget_add_css_class(buttonNotSoSpacy, "IconNotSoSpacy");
+    g_signal_connect(buttonNotSoSpacy, "clicked", G_CALLBACK(NotSoSpacy), NULL);
+    gtk_widget_set_hexpand(buttonNotSoSpacy,FALSE);
+    gtk_widget_set_vexpand(buttonNotSoSpacy,FALSE);
 
     //Init of buttonNotSoNotSpooky
     mainWidget.buttonNotSoNotSpooky = gtk_button_new();
