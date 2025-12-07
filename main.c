@@ -25,6 +25,7 @@ struct mainWidget {
     GtkWidget *buttonNotSoNotFallty;
     GtkWidget *buttonJustaGuiFramework;
     GtkWidget *buttonNotSoSpacy;
+    GtkWidget *buttonNotSoNotSpooky;
 } mainWidget;
 
 static void activate(GtkApplication *app, gpointer user_data) {
@@ -137,6 +138,16 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_hexpand(mainWidget.buttonNotSoSpacy,FALSE);
     gtk_widget_set_vexpand(mainWidget.buttonNotSoSpacy,FALSE);
 
+    //Init of buttonNotSoNotSpooky
+    mainWidget.buttonNotSoNotSpooky = gtk_button_new();
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonNotSoNotSpooky, 0, 4, 1, 1);
+    gtk_widget_set_size_request(mainWidget.buttonNotSoNotSpooky, 84, 84);
+    gtk_widget_add_css_class(mainWidget.buttonNotSoNotSpooky, "DesktopIcon");
+    gtk_widget_add_css_class(mainWidget.buttonNotSoNotSpooky, "IconbuttonNotSoNotSpooky");
+    //g_signal_connect(mainWidget.buttonNotSoNotSpooky, "clicked", G_CALLBACK(NotSoNotSpooky), NULL);
+    gtk_widget_set_hexpand(mainWidget.buttonNotSoNotSpooky,FALSE);
+    gtk_widget_set_vexpand(mainWidget.buttonNotSoNotSpooky,FALSE);
+
     //Init of frameDock
     GtkWidget *frameDock = gtk_frame_new(NULL);
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent),frameDock,10,30,10,1);
@@ -146,6 +157,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_valign(frameDock,GTK_ALIGN_CENTER);
     gtk_widget_set_margin_top(frameDock,405-84);
     gtk_widget_set_margin_start(frameDock,175);
+
 
 
 
