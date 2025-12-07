@@ -5,4 +5,6 @@
 #ifndef ILLUSIONOS_NOTSOSPACY_H
 #define ILLUSIONOS_NOTSOSPACY_H
 
+void NotSoSpacy ();
+
 #endif //ILLUSIONOS_NOTSOSPACY_H
