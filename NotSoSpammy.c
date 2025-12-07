@@ -542,3 +542,4 @@ void updateTokenCount() {
     gtk_label_set_text(GTK_LABEL(labelTokenCount),TokenCount);
 
 }
+
