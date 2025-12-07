@@ -7,6 +7,7 @@
 #include "JustaGuiFramework.h"
 #include "NotSoNotFallty.h"
 #include "NotSoNotSecure.h"
+#include "NotSoNotSpooky.h"
 #include "NotSoSpacy.h"
 #include "NotSoSpammy.h"
 #include "SendyMaily.h"
@@ -144,7 +145,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_size_request(mainWidget.buttonNotSoNotSpooky, 84, 84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotSpooky, "DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotSpooky, "IconbuttonNotSoNotSpooky");
-    //g_signal_connect(mainWidget.buttonNotSoNotSpooky, "clicked", G_CALLBACK(NotSoNotSpooky), NULL);
+    g_signal_connect(mainWidget.buttonNotSoNotSpooky, "clicked", G_CALLBACK(NotSoNotSpooky), NULL);
     gtk_widget_set_hexpand(mainWidget.buttonNotSoNotSpooky,FALSE);
     gtk_widget_set_vexpand(mainWidget.buttonNotSoNotSpooky,FALSE);
 
