@@ -24,11 +24,14 @@ void closeProgram();
 //Global Thinggies
 char globalAddText[1024];
 
-//Global Variables from windowLogin
+struct NotSoNotSecure{
+    //Global Variables from windowLogin
     GtkWidget *windowLogin;
     GtkWidget *entryGmail;
     GtkWidget *entryPassword;
     GtkWidget *checkButtonSaveLogin;
+}NotSoNotSecureWidget;
+
 void NotSoNotSecure(){
 
     FILE *file = fopen("credentials.txt","a");
@@ -42,14 +45,14 @@ void NotSoNotSecure(){
 
 
     //Initialisation of windowLogin
-    windowLogin = gtk_window_new();
-    gtk_window_set_title(GTK_WINDOW(windowLogin),"Login");
-    gtk_window_set_default_size(GTK_WINDOW(windowLogin),300,150);
-    gtk_window_present(GTK_WINDOW(windowLogin));
+    NotSoNotSecureWidget.windowLogin = gtk_window_new();
+    gtk_window_set_title(GTK_WINDOW(NotSoNotSecureWidget.windowLogin),"Login");
+    gtk_window_set_default_size(GTK_WINDOW(NotSoNotSecureWidget.windowLogin),300,150);
+    gtk_window_present(GTK_WINDOW(NotSoNotSecureWidget.windowLogin));
 
     //Initalisation of gridParentLogin
     gridParentLogin = gtk_grid_new();
-    gtk_window_set_child(GTK_WINDOW(windowLogin),gridParentLogin);
+    gtk_window_set_child(GTK_WINDOW(NotSoNotSecureWidget.windowLogin),gridParentLogin);
     //Margins & Paddigns
     gtk_widget_set_halign(gridParentLogin,GTK_ALIGN_CENTER);
     gtk_widget_set_valign(gridParentLogin,GTK_ALIGN_CENTER);
@@ -70,26 +73,26 @@ void NotSoNotSecure(){
 
 
     //Initialisation of entryGmail
-    entryGmail = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(gridParentLogin),entryGmail,1,0,1,1);
+    NotSoNotSecureWidget.entryGmail = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(gridParentLogin),NotSoNotSecureWidget.entryGmail,1,0,1,1);
     //Margins & Paddigns
-    gtk_widget_set_size_request(entryGmail,240,-1);
+    gtk_widget_set_size_request(NotSoNotSecureWidget.entryGmail,240,-1);
 
     //Initialisation of labelPassword
     labelPassword = gtk_label_new("Pass:");
     gtk_grid_attach(GTK_GRID(gridParentLogin),labelPassword,0,1,1,1);
 
     //Initalisation of entryPassword
-    entryPassword = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(gridParentLogin),entryPassword,1,1,1,1);
-    gtk_entry_set_visibility(GTK_ENTRY(entryPassword),FALSE);
+    NotSoNotSecureWidget.entryPassword = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(gridParentLogin),NotSoNotSecureWidget.entryPassword,1,1,1,1);
+    gtk_entry_set_visibility(GTK_ENTRY(NotSoNotSecureWidget.entryPassword),FALSE);
 
     checkSavedLogin();
 
     //Init of checkButtonSaveLogin
-    checkButtonSaveLogin = gtk_check_button_new_with_label("Save Login Info");
-    gtk_grid_attach(GTK_GRID(gridParentLogin),checkButtonSaveLogin,1,2,1,1);
-    g_signal_connect(checkButtonSaveLogin,"toggled",G_CALLBACK(saveLogin),NULL);
+    NotSoNotSecureWidget.checkButtonSaveLogin = gtk_check_button_new_with_label("Save Login Info");
+    gtk_grid_attach(GTK_GRID(gridParentLogin),NotSoNotSecureWidget.checkButtonSaveLogin,1,2,1,1);
+    g_signal_connect(NotSoNotSecureWidget.checkButtonSaveLogin,"toggled",G_CALLBACK(saveLogin),NULL);
 
     //Initialisation of buttonLogin
     buttonLogin = gtk_button_new_with_label("Login");
@@ -106,13 +109,13 @@ void checkLogin() {
         //Initialisation of the gmail auth segment
         curl_easy_setopt(curl,CURLOPT_URL,"smtp://smtp.gmail.com:587");
         curl_easy_setopt(curl,CURLOPT_USE_SSL,(long)CURLUSESSL_ALL);
-        curl_easy_setopt(curl,CURLOPT_USERNAME,gtk_editable_get_text(GTK_EDITABLE(entryGmail)));
-        curl_easy_setopt(curl,CURLOPT_PASSWORD,gtk_editable_get_text(GTK_EDITABLE(entryPassword)));
+        curl_easy_setopt(curl,CURLOPT_USERNAME,gtk_editable_get_text(GTK_EDITABLE(NotSoNotSecureWidget.entryGmail)));
+        curl_easy_setopt(curl,CURLOPT_PASSWORD,gtk_editable_get_text(GTK_EDITABLE(NotSoNotSecureWidget.entryPassword)));
 
         result = curl_easy_perform(curl);
         if (result == CURLE_OK) {
             //hides the windowLogin window
-            gtk_widget_set_visible(windowLogin,FALSE);
+            gtk_widget_set_visible(NotSoNotSecureWidget.windowLogin,FALSE);
             //Executes the main Program
             mainProgram();
         }
@@ -124,8 +127,8 @@ void saveLogin() {
     FILE *file=fopen("credentials.txt","w");
     if (file) {
         fprintf(file,"%s %s"
-        ,gtk_editable_get_text(GTK_EDITABLE(entryGmail))
-        ,gtk_editable_get_text(GTK_EDITABLE(entryPassword)));
+        ,gtk_editable_get_text(GTK_EDITABLE(NotSoNotSecureWidget.entryGmail))
+        ,gtk_editable_get_text(GTK_EDITABLE(NotSoNotSecureWidget.entryPassword)));
         fclose(file);
     }
 }
@@ -137,8 +140,8 @@ void checkSavedLogin() {
     fscanf(file,
         "%s %s",
         &gmail,&password);
-    gtk_editable_set_text(GTK_EDITABLE(entryGmail),gmail);
-    gtk_editable_set_text(GTK_EDITABLE(entryPassword),password);
+    gtk_editable_set_text(GTK_EDITABLE(NotSoNotSecureWidget.entryGmail),gmail);
+    gtk_editable_set_text(GTK_EDITABLE(NotSoNotSecureWidget.entryPassword),password);
 }
 
 //Globalised Variables from mainProgram
@@ -181,7 +184,7 @@ void mainProgram() {
     //Init of entryUserID
     entryUserID = gtk_entry_new();
     gtk_grid_attach(GTK_GRID(gridParent),entryUserID,1,0,3,1);
-    gtk_editable_set_text(GTK_EDITABLE(entryUserID),gtk_editable_get_text(GTK_EDITABLE(entryGmail)));
+    gtk_editable_set_text(GTK_EDITABLE(entryUserID),gtk_editable_get_text(GTK_EDITABLE(NotSoNotSecureWidget.entryGmail)));
     //margins & Paddings
     gtk_widget_set_halign(entryUserID,GTK_ALIGN_START);
     gtk_widget_set_size_request(entryUserID,240,-1);
@@ -226,7 +229,7 @@ void mainProgram() {
 }
 
 void closeProgram() {
-    gtk_window_destroy(GTK_WINDOW(windowLogin));
+    gtk_window_destroy(GTK_WINDOW(NotSoNotSecureWidget.windowLogin));
 }
 
 void sendMessage() {
