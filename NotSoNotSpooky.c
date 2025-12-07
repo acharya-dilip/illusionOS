@@ -8,6 +8,8 @@
 #include <gtk/gtk.h>
 #include <curl/curl.h>
 
+#include "main.h"
+
 struct values {
     long long a,b;
     double result,answer;
@@ -37,6 +39,7 @@ void NotSoNotSpooky() {
     GtkWidget *windowSpooky = gtk_window_new();
     gtk_window_set_title(GTK_WINDOW(windowSpooky),"Calculator");
     gtk_window_present(GTK_WINDOW(windowSpooky));
+    gtk_window_set_transient_for(GTK_WINDOW(windowSpooky),windowMainDesktop);
 
     //init of gridParent
     GtkWidget *gridParent = gtk_grid_new();
