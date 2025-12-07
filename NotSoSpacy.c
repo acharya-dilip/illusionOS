@@ -433,6 +433,7 @@ void closeAlarm() {
     g_signal_connect(buttonStopAlarm, "clicked", G_CALLBACK(stopSound), NULL);
 }
 
+
 void stopSound() {
     //Please don't call me lazy ;-; too tired to create a seperate function
     system("pkill -f 'while true; do gst-play-1.0 ./src/sounds/spaceAlarm.mp3'");
