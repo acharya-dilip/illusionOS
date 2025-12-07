@@ -91,6 +91,8 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven, "DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven, "IconSendyMaily");
     g_signal_connect(mainWidget.buttonThreeEyedRaven, "clicked", G_CALLBACK(ThreeEyedRaven), NULL);
+    gtk_widget_set_hexpand(mainWidget.buttonThreeEyedRaven,FALSE);
+    gtk_widget_set_vexpand(mainWidget.buttonThreeEyedRaven,FALSE);
 
 
     //Init of buttonNotSoNotSecure
