@@ -29,7 +29,7 @@ char globalAddText[1024];
     GtkWidget *entryGmail;
     GtkWidget *entryPassword;
     GtkWidget *checkButtonSaveLogin;
-void NotSoNotSecure{
+void NotSoNotSecure(){
 
     FILE *file = fopen("credentials.txt","a");
     fclose(file);
@@ -42,7 +42,7 @@ void NotSoNotSecure{
 
 
     //Initialisation of windowLogin
-    windowLogin = gtk_application_window_new(app);
+    windowLogin = gtk_window_new();
     gtk_window_set_title(GTK_WINDOW(windowLogin),"Login");
     gtk_window_set_default_size(GTK_WINDOW(windowLogin),300,150);
     gtk_window_present(GTK_WINDOW(windowLogin));
