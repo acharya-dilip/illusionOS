@@ -28,7 +28,6 @@ struct mainWidget {
     GtkWidget *buttonJustaGuiFramework;
     GtkWidget *buttonNotSoSpacy;
     GtkWidget *buttonNotSoNotSpooky;
-    GtkWidget *buttonJustaGridSweeper;
 } mainWidget;
 
 static void activate(GtkApplication *app, gpointer user_data) {
@@ -153,15 +152,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_hexpand(mainWidget.buttonNotSoNotSpooky,FALSE);
     gtk_widget_set_vexpand(mainWidget.buttonNotSoNotSpooky,FALSE);
 
-    //Init of buttonJustaGridSweeper
-    mainWidget.buttonJustaGridSweeper = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonJustaGridSweeper, 1, 4, 1, 1);
-    gtk_widget_set_size_request(mainWidget.buttonJustaGridSweeper, 84, 84);
-    gtk_widget_add_css_class(mainWidget.buttonJustaGridSweeper, "DesktopIcon");
-    gtk_widget_add_css_class(mainWidget.buttonJustaGridSweeper, "IconbuttonJustaGridSweeper");
-    // g_signal_connect(mainWidget.buttonJustaGridSweeper, "clicked", G_CALLBACK(buttonJustaGridSweeper), NULL);
-    gtk_widget_set_hexpand(mainWidget.buttonJustaGridSweeper,FALSE);
-    gtk_widget_set_vexpand(mainWidget.buttonJustaGridSweeper,FALSE);
+
 
     //Init of frameDock
     GtkWidget *frameDock = gtk_frame_new(NULL);
