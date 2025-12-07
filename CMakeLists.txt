@@ -27,6 +27,8 @@ add_executable(illusionOS main.c
         ThreeEyedRaven.h
         NotSoNotSecure.c
         NotSoNotSecure.h
+        NotSoNotFallty.c
+        NotSoNotFallty.h
 )
 
 target_link_libraries(${PROJECT_NAME}
