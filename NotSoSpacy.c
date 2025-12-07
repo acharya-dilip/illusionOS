@@ -256,10 +256,12 @@ void screenAddAlarm() {
     gtk_widget_set_margin_end(GTK_WIDGET(gridParent), 10);
     gtk_widget_set_margin_top(GTK_WIDGET(gridParent), 10);
     gtk_widget_set_margin_bottom(GTK_WIDGET(gridParent), 10);
+
     //Init of buttonHourUp
     GtkWidget *buttonHourUp = gtk_button_new_with_label("🔺");
     gtk_grid_attach(GTK_GRID(gridParent), buttonHourUp, 0, 0, 1, 1);
     g_signal_connect(buttonHourUp, "clicked", G_CALLBACK(alarmHourButton), GINT_TO_POINTER(1));
+
     //Init of entryhours
     entryHour = gtk_entry_new();
     gtk_grid_attach(GTK_GRID(gridParent), entryHour, 0, 1, 1, 1);
@@ -414,6 +416,9 @@ void closeAlarm() {
     gtk_window_set_title(GTK_WINDOW(windowClose), "Alarm Ringing");
     gtk_window_set_default_size(GTK_WINDOW(windowClose), 200, 200);
     gtk_window_present(GTK_WINDOW(windowClose));
+    gtk_window_set_transient_for(GTK_WINDOW(windowClose),windowMainDesktop);
+
+
     //Init of gridParent
     GtkWidget *gridParent = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(windowClose), gridParent);
