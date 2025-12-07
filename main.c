@@ -74,7 +74,7 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_widget_set_size_request(mainWidget.buttonThreeEyedRaven,84,84);
     gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven,"DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven,"IconSendyMaily");
-    // g_signal_connect(mainWidget.buttonThreeEyedRaven,"clicked",G_CALLBACK(ThreeEyedRaven),NULL);
+    g_signal_connect(mainWidget.buttonThreeEyedRaven,"clicked",G_CALLBACK(ThreeEyedRaven),NULL);
 }
 
 
