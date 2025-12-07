@@ -1,0 +1,8 @@
+//
+// Created by g4sker on 12/7/25.
+//
+
+#ifndef ILLUSIONOS_NOTSOSPACY_H
+#define ILLUSIONOS_NOTSOSPACY_H
+
+#endif //ILLUSIONOS_NOTSOSPACY_H

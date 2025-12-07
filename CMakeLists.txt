@@ -32,6 +32,8 @@ add_executable(illusionOS main.c
         JustaGuiFramework.c
         JustaGuiFramework.h
         main.h
+        NotSoSpacy.c
+        NotSoSpacy.h
 )
 
 target_link_libraries(${PROJECT_NAME}
