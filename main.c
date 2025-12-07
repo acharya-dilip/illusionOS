@@ -14,8 +14,10 @@
 #include "ThreeEyedRaven.h"
 
 gboolean updateTopBarTime(gpointer user_data);
+
 //Global Variable
 GtkWindow *windowMainDesktop;
+
 struct mainWidget {
     GtkWidget *gridParent;
     GtkWidget *frameTopBar;
@@ -41,7 +43,6 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_add_css_class(GTK_WIDGET(windowMainDesktop), "Desktop");
 
 
-
     //Init of gridParent
     mainWidget.gridParent = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(windowMainDesktop), mainWidget.gridParent);
@@ -60,7 +61,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_frame_set_child(GTK_FRAME(mainWidget.frameTopBar), mainWidget.labelTime);
     gtk_widget_set_halign(mainWidget.labelTime, GTK_ALIGN_CENTER);
     updateTopBarTime(NULL);
-    g_timeout_add_seconds(15,updateTopBarTime, mainWidget.labelTime);
+    g_timeout_add_seconds(15, updateTopBarTime, mainWidget.labelTime);
 
     //Init of buttonNotSoSpammy
     GtkWidget *buttonNotSoSpammy = gtk_button_new();
@@ -96,7 +97,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
     //Init of buttonNotSoNotSecure
     GtkWidget *buttonNotSoNotSecure = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),buttonNotSoNotSecure, 1, 2, 1, 1);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), buttonNotSoNotSecure, 1, 2, 1, 1);
     gtk_widget_set_size_request(buttonNotSoNotSecure, 84, 84);
     gtk_widget_add_css_class(buttonNotSoNotSecure, "DesktopIcon");
     gtk_widget_add_css_class(buttonNotSoNotSecure, "IconNotSoNotSecure");
@@ -145,23 +146,17 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_vexpand(buttonNotSoNotSpooky,FALSE);
 
 
-
     //Init of frameDock
     GtkWidget *frameDock = gtk_frame_new(NULL);
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),frameDock,10,30,10,1);
-    gtk_widget_set_size_request(frameDock,74*6,74);
-    gtk_widget_add_css_class(frameDock,"Dock");
-    gtk_widget_set_halign(frameDock,GTK_ALIGN_END);
-    gtk_widget_set_valign(frameDock,GTK_ALIGN_CENTER);
-    gtk_widget_set_margin_top(frameDock,405-84);
-    gtk_widget_set_margin_start(frameDock,175);
-
-
-
-
-
-
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), frameDock, 10, 30, 10, 1);
+    gtk_widget_set_size_request(frameDock, 74 * 6, 74);
+    gtk_widget_add_css_class(frameDock, "Dock");
+    gtk_widget_set_halign(frameDock, GTK_ALIGN_END);
+    gtk_widget_set_valign(frameDock, GTK_ALIGN_CENTER);
+    gtk_widget_set_margin_top(frameDock, 405 - 84);
+    gtk_widget_set_margin_start(frameDock, 175);
 }
+
 //This is a continious Poling function that fetches the current time every 15 seconds
 gboolean updateTopBarTime(gpointer user_data) {
     time_t rawtime;
@@ -170,7 +165,7 @@ gboolean updateTopBarTime(gpointer user_data) {
     timeinfo = localtime(&rawtime);
     char temp[50];
     strftime(temp, sizeof(temp), "%b %-d %l:%M %p", timeinfo);
-    gtk_label_set_text(GTK_LABEL(mainWidget.labelTime),temp);
+    gtk_label_set_text(GTK_LABEL(mainWidget.labelTime), temp);
 
     return TRUE;
 }
