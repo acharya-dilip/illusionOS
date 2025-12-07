@@ -119,7 +119,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_halign(frameDock,GTK_ALIGN_END);
     gtk_widget_set_valign(frameDock,GTK_ALIGN_CENTER);
     gtk_widget_set_margin_top(frameDock,405);
-    gtk_widget_set_margin_start(frameDock,100);
+    gtk_widget_set_margin_start(frameDock,405);
 
 
 
