@@ -144,7 +144,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
     //Init of buttonNotSoNotSpooky
     mainWidget.buttonNotSoNotSpooky = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonNotSoNotSpooky, 0, 4, 1, 1);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonNotSoNotSpooky, 1, 4, 1, 1);
     gtk_widget_set_size_request(mainWidget.buttonNotSoNotSpooky, 84, 84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotSpooky, "DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotSpooky, "IconbuttonNotSoNotSpooky");
