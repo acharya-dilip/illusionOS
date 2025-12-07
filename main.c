@@ -12,7 +12,7 @@
 #include "ThreeEyedRaven.h"
 
 
-extern struct mainWidget {
+struct mainWidget {
     GtkWidget *windowMain;
     GtkWidget *gridParent;
     GtkWidget *buttonNotSoSpammy;
