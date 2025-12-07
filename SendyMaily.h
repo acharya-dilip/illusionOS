@@ -4,7 +4,7 @@
 
 #ifndef ILLUSIONOS_SENDYMAILY_H
 #define ILLUSIONOS_SENDYMAILY_H
-
+//Function that calls the SendyMaily software within the SendyMaily.c
 void SendyMaily ();
 
 void displaySendyMaily();
