@@ -119,6 +119,8 @@ void NotSoSpacy() {
     //Margins & Paddings
     gtk_widget_set_size_request(entryTime, 300, 80);
     gtk_entry_set_alignment(GTK_ENTRY(entryTime), 0.5);
+    gtk_widget_add_css_class(entryTime,"TimeStuff");
+
     //Calling and Polling the updateTime Function
     g_timeout_add_seconds(1, updateTime, entryTime);
     updateTime(entryTime);
@@ -128,7 +130,7 @@ void NotSoSpacy() {
     //Init of labelAlarms
     GtkWidget *labelAlarms = gtk_label_new("Alarms");
     gtk_grid_attach(GTK_GRID(gridParent), labelAlarms, 0, 1, 16, 1);
-    gtk_widget_add_css_class(labelAlarms, "labelAlarms");
+    gtk_widget_add_css_class(labelAlarms, "BigLabel");
     //Init of scrollAlarms
     GtkWidget *scrollAlarms = gtk_scrolled_window_new();
     gtk_grid_attach(GTK_GRID(gridParent), scrollAlarms, 0, 2, 16, 1);
@@ -270,6 +272,8 @@ void screenAddAlarm() {
     gtk_widget_add_css_class(entryHour, "entryHour");
     gtk_entry_set_alignment(GTK_ENTRY(entryHour), 0.5);
     gtk_widget_set_hexpand(GTK_WIDGET(entryHour), FALSE);
+    gtk_widget_add_css_class(entryHour,"TimeStuff");
+
     //Init of buttonHourDown
     GtkWidget *buttonHourDown = gtk_button_new_with_label("🔻");
     gtk_grid_attach(GTK_GRID(gridParent), buttonHourDown, 0, 2, 1, 1);
@@ -291,6 +295,7 @@ void screenAddAlarm() {
     gtk_entry_set_alignment(GTK_ENTRY(entryMinute), 0.5);
     gtk_widget_set_size_request(entryMinute, 90, 90);
     gtk_widget_set_hexpand(GTK_WIDGET(entryMinute), FALSE);
+    gtk_widget_add_css_class(entryMinute,"TimeStuff");
     //Sets the correct time in the respective entries
     //Init of buttonHourDown
     GtkWidget *buttonMinDown = gtk_button_new_with_label("🔻");
