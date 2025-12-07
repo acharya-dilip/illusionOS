@@ -20,7 +20,6 @@ struct mainWidget {
     GtkWidget *gridParent;
     GtkWidget *frameTopBar;
     GtkWidget *labelTime;
-    GtkWidget *buttonThreeEyedRaven;
     GtkWidget *buttonNotSoNotSecure;
     GtkWidget *buttonNotSoNotFallty;
     GtkWidget *buttonJustaGuiFramework;
@@ -90,14 +89,14 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_vexpand(buttonSendyMaily,FALSE);
 
     //Init of buttonThreeEyedRaven
-    mainWidget.buttonThreeEyedRaven = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonThreeEyedRaven, 0, 2, 1, 1);
-    gtk_widget_set_size_request(mainWidget.buttonThreeEyedRaven, 84, 84);
-    gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven, "DesktopIcon");
-    gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven, "IconThreeEyedRaven");
-    g_signal_connect(mainWidget.buttonThreeEyedRaven, "clicked", G_CALLBACK(ThreeEyedRaven), NULL);
-    gtk_widget_set_hexpand(mainWidget.buttonThreeEyedRaven,FALSE);
-    gtk_widget_set_vexpand(mainWidget.buttonThreeEyedRaven,FALSE);
+    GtkWidget *buttonThreeEyedRaven = gtk_button_new();
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), buttonThreeEyedRaven, 0, 2, 1, 1);
+    gtk_widget_set_size_request(buttonThreeEyedRaven, 84, 84);
+    gtk_widget_add_css_class(buttonThreeEyedRaven, "DesktopIcon");
+    gtk_widget_add_css_class(buttonThreeEyedRaven, "IconThreeEyedRaven");
+    g_signal_connect(buttonThreeEyedRaven, "clicked", G_CALLBACK(ThreeEyedRaven), NULL);
+    gtk_widget_set_hexpand(buttonThreeEyedRaven,FALSE);
+    gtk_widget_set_vexpand(buttonThreeEyedRaven,FALSE);
 
 
     //Init of buttonNotSoNotSecure
