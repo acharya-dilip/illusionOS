@@ -39,25 +39,29 @@ char mmppt[512];
 char wind[512];
 char sunrise[512];
 char sunset[512];
-//Globalised Login Variables
-GtkWidget *windowLogin;
-GtkWidget *entryGmail;
-GtkWidget *entryPassword;
 
-static void activate(GtkApplication *app,gpointer user_data) {
+struct widgetTER {
+    //Globalised Login Variables
+    GtkWidget *windowLogin;
+    GtkWidget *entryGmail;
+    GtkWidget *entryPassword;
+
+}widgetTER;
+
+void ThreeEyedRaven() {
     GtkWidget *gridParentLogin;
     GtkWidget *labelGmail;
     GtkWidget *labelPassword;
     GtkWidget *buttonLogin;
 
     //Implementation of login window
-    windowLogin = gtk_application_window_new(app);
-    gtk_window_set_title(GTK_WINDOW(windowLogin),"Login");
-    gtk_window_present(GTK_WINDOW(windowLogin));
+    widgetTER.windowLogin = gtk_window_new();
+    gtk_window_set_title(GTK_WINDOW(widgetTER.windowLogin),"Login");
+    gtk_window_present(GTK_WINDOW(widgetTER.windowLogin));
 
     //Implementation of gridParent
     gridParentLogin = gtk_grid_new();
-    gtk_window_set_child(GTK_WINDOW(windowLogin),gridParentLogin);
+    gtk_window_set_child(GTK_WINDOW(widgetTER.windowLogin),gridParentLogin);
     //Margins & Paddings
         gtk_widget_set_halign(gridParentLogin,GTK_ALIGN_CENTER);
         gtk_widget_set_margin_top(gridParentLogin,10);
@@ -82,17 +86,17 @@ static void activate(GtkApplication *app,gpointer user_data) {
         gtk_widget_set_margin_bottom(labelPassword,10);
 
     //Implementation of entryGmail
-    entryGmail = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(gridParentLogin),entryGmail,1,0,4,1);
+    widgetTER.entryGmail = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(gridParentLogin),widgetTER.entryGmail,1,0,4,1);
 
     //IMplementation of entryPassword
-    entryPassword = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(gridParentLogin),entryPassword,1,1,4,1);
-    gtk_entry_set_visibility(GTK_ENTRY(entryPassword),FALSE);
+    widgetTER.entryPassword = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(gridParentLogin),widgetTER.entryPassword,1,1,4,1);
+    gtk_entry_set_visibility(GTK_ENTRY(widgetTER.entryPassword),FALSE);
 
     //Margins & Paddings
-        gtk_widget_set_size_request(entryGmail,200,-1);
-        gtk_widget_set_size_request(entryPassword,200,-1);
+        gtk_widget_set_size_request(widgetTER.entryGmail,200,-1);
+        gtk_widget_set_size_request(widgetTER.entryPassword,200,-1);
 
     //Implementation of Button Login
     buttonLogin = gtk_button_new_with_label("Login");
@@ -109,8 +113,8 @@ void checkLogin() {
         curl_easy_setopt(curl,CURLOPT_URL,"smtp://smtp.gmail.com:587");
         curl_easy_setopt(curl,CURLOPT_USE_SSL,(long)CURLUSESSL_ALL);
 
-        curl_easy_setopt(curl,CURLOPT_USERNAME,gtk_editable_get_text(GTK_EDITABLE(entryGmail)));
-        curl_easy_setopt(curl,CURLOPT_PASSWORD,gtk_editable_get_text(GTK_EDITABLE(entryPassword)));
+        curl_easy_setopt(curl,CURLOPT_USERNAME,gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryGmail)));
+        curl_easy_setopt(curl,CURLOPT_PASSWORD,gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryPassword)));
 
         //To ignore other steps only do the handshake
         curl_easy_setopt(curl,CURLOPT_NOBODY,1L);
@@ -120,7 +124,7 @@ void checkLogin() {
 
         result = curl_easy_perform(curl);
         if (result == CURLE_OK) {
-            gtk_widget_set_visible(windowLogin, FALSE);
+            gtk_widget_set_visible(widgetTER.windowLogin, FALSE);
             mainWindow();
         }
 
@@ -243,7 +247,7 @@ void deployRaven() {
     lockedEntryUserId = gtk_entry_new();
     gtk_grid_attach(GTK_GRID(gridParentRaven),lockedEntryUserId,0,0,5,1);
     char userID[128];
-    snprintf(userID,sizeof(userID),"User ID: %s",gtk_editable_get_text(GTK_EDITABLE(entryGmail)));
+    snprintf(userID,sizeof(userID),"User ID: %s",gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryGmail)));
     gtk_editable_set_text(GTK_EDITABLE(lockedEntryUserId),userID);
     gtk_editable_set_editable(GTK_EDITABLE(lockedEntryUserId),FALSE);
     //MArgins & Paddings
@@ -299,7 +303,7 @@ FILE *file = fopen("mail.txt","w");
                 "\r\n"
                 "%s\r\n",
                 gtk_editable_get_text(GTK_EDITABLE(entryRecipientMail)),
-                gtk_editable_get_text(GTK_EDITABLE(entryGmail)),
+                gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryGmail)),
                 gtk_editable_get_text(GTK_EDITABLE(lockedEntrySubject)),
                 temp);
 
@@ -316,9 +320,9 @@ void sendReportMail() {
         curl_easy_setopt(curl,CURLOPT_URL,"smtp://smtp.gmail.com:587");
         curl_easy_setopt(curl,CURLOPT_USE_SSL,(long)CURLUSESSL_ALL);
         //fetching the user credentials
-        curl_easy_setopt(curl,CURLOPT_USERNAME,gtk_editable_get_text(GTK_EDITABLE(entryGmail)));
-        curl_easy_setopt(curl,CURLOPT_PASSWORD,gtk_editable_get_text(GTK_EDITABLE(entryPassword)));
-        curl_easy_setopt(curl,CURLOPT_MAIL_FROM,gtk_editable_get_text(GTK_EDITABLE(entryGmail)));
+        curl_easy_setopt(curl,CURLOPT_USERNAME,gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryGmail)));
+        curl_easy_setopt(curl,CURLOPT_PASSWORD,gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryPassword)));
+        curl_easy_setopt(curl,CURLOPT_MAIL_FROM,gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryGmail)));
         //Recipients stuff
         struct curl_slist *recipients=NULL;
         recipients = curl_slist_append(recipients,gtk_editable_get_text(GTK_EDITABLE(entryRecipientMail)));
@@ -541,17 +545,5 @@ void updateWeatherInfo(){
 }
 
 void closeProgram(){
-    gtk_window_destroy(GTK_WINDOW(windowLogin));
-}
-
-int main(int argc, char **argv){
-    GtkApplication *app;
-    int status;
-    app= gtk_application_new ("org.gtk.example", G_APPLICATION_DEFAULT_FLAGS);
-    g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
-    status = g_application_run (G_APPLICATION (app), argc, argv);
-    g_object_unref (app);
-
-
-    return status;
+    gtk_window_destroy(GTK_WINDOW(widgetTER.windowLogin));
 }
