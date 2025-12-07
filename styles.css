@@ -18,5 +18,14 @@
 }
 .TimeStuff{
     color: lightgray;
-    font-size: 100px;
+    font-size: 40px;
+}
+.boxAlarm{
+    background-color:black;
+    font-size: 25px;
+    border-radius: 10px;
+    padding: 10px;
+    button{
+        all: unset;
+    }
 }
