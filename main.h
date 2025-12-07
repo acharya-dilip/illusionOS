@@ -4,7 +4,8 @@
 
 #ifndef ILLUSIONOS_MAIN_H
 #define ILLUSIONOS_MAIN_H
+#include <gtk/gtk.h>
 
-
+extern GtkWindow *windowMainDesktop;
 
 #endif //ILLUSIONOS_MAIN_H
