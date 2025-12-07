@@ -67,6 +67,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
     mainWidget.labelTime = gtk_label_new("Dec 6  11:11 PM");
     gtk_frame_set_child(GTK_FRAME(mainWidget.frameTopBar), mainWidget.labelTime);
     gtk_widget_set_halign(mainWidget.labelTime, GTK_ALIGN_CENTER);
+    updateTopBarTime();
 
     //Init of buttonNotSoSpammy
     mainWidget.buttonNotSoSpammy = gtk_button_new();
