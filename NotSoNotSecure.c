@@ -12,14 +12,14 @@
 
 
 void checkSavedLogin();
-void checkLogin();
+void NSNScheckLogin();
 void saveLogin();
 void mainProgram();
 void sendMessage();
 void updateChat();
 void fetchMessage();
 size_t write_callback(void *contents, size_t size, size_t nmemb, void *userp);
-void closeProgram();
+void NSNScloseProgram();
 
 //Global Thinggies
 char globalAddText[1024];
@@ -97,12 +97,12 @@ void NotSoNotSecure(){
     //Initialisation of buttonLogin
     buttonLogin = gtk_button_new_with_label("Login");
     gtk_grid_attach(GTK_GRID(gridParentLogin),buttonLogin,1,3,1,1);
-    g_signal_connect(buttonLogin,"clicked",G_CALLBACK(checkLogin),NULL);
+    g_signal_connect(buttonLogin,"clicked",G_CALLBACK(NSNScheckLogin),NULL);
 
 }
 
 
-void checkLogin() {
+void NSNScheckLogin() {
     CURL *curl = curl_easy_init();
     CURLcode result;
     if (curl) {
@@ -162,7 +162,7 @@ void mainProgram() {
     gtk_window_set_default_size(GTK_WINDOW(windowMain),380,400);
     gtk_window_set_title(GTK_WINDOW(windowMain),"NotSoNotSecure");
     gtk_window_present(GTK_WINDOW(windowMain));
-    g_signal_connect(windowMain,"destroy",G_CALLBACK(closeProgram),NULL);
+    g_signal_connect(windowMain,"destroy",G_CALLBACK(NSNScloseProgram),NULL);
 
     //Init of gridParent
     gridParent = gtk_grid_new();
@@ -228,7 +228,7 @@ void mainProgram() {
 
 }
 
-void closeProgram() {
+void NSNScloseProgram() {
     gtk_window_destroy(GTK_WINDOW(NotSoNotSecureWidget.windowLogin));
 }
 
