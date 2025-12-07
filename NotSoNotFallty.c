@@ -357,6 +357,7 @@ void pushWindow() {
     windowPush = gtk_window_new();
     gtk_window_set_title(GTK_WINDOW(windowPush),"Push To Remote");
     gtk_window_present(GTK_WINDOW(windowPush));
+    gtk_window_set_transient_for(GTK_WINDOW(windowPush),windowMainDesktop);
 
     //Init of headerPush
     headerPush = gtk_header_bar_new();
