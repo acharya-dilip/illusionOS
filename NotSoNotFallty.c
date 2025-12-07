@@ -230,7 +230,7 @@ void createghrepo(){
     GtkWidget
     *entryCommitTitle,
     *textviewCommitMessage,
-    *windowMain;
+    *windowMainNotSoNotFallty;
 //for a test
 void NotSoNotFallty() {
     FILE *file = fopen("filePath.txt","a");
@@ -246,15 +246,15 @@ void NotSoNotFallty() {
     *headerMainWindow,
     *buttonCommit;
 
-    //Init of windowMain
-    windowMain = gtk_application_window_new(app);
-    gtk_window_set_title(GTK_WINDOW(windowMain),"NotSoNotFallty");
-    gtk_window_set_default_size(GTK_WINDOW(windowMain),270,320);
-    gtk_window_present(GTK_WINDOW(windowMain));
+    //Init of windowMainNotSoNotFallty
+    windowMainNotSoNotFallty = gtk_window_new();
+    gtk_window_set_title(GTK_WINDOW(windowMainNotSoNotFallty),"NotSoNotFallty");
+    gtk_window_set_default_size(GTK_WINDOW(windowMainNotSoNotFallty),270,320);
+    gtk_window_present(GTK_WINDOW(windowMainNotSoNotFallty));
 
     //Init of headerMainWindow
     headerMainWindow = gtk_header_bar_new();
-    gtk_window_set_titlebar(GTK_WINDOW(windowMain),headerMainWindow);
+    gtk_window_set_titlebar(GTK_WINDOW(windowMainNotSoNotFallty),headerMainWindow);
 
     //Init of buttonPush
     buttonPush = gtk_button_new_with_label("🌐");
@@ -264,7 +264,7 @@ void NotSoNotFallty() {
 
     //Init of gridParent
     gridParent = gtk_grid_new();
-    gtk_window_set_child(GTK_WINDOW(windowMain),gridParent);
+    gtk_window_set_child(GTK_WINDOW(windowMainNotSoNotFallty),gridParent);
     //Margins & Paddings
     gtk_widget_set_margin_start(gridParent,10);
     gtk_widget_set_margin_end(gridParent,10);
