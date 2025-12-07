@@ -257,6 +257,7 @@ void NotSoNotFallty() {
     gtk_window_set_title(GTK_WINDOW(windowMainNotSoNotFallty),"NotSoNotFallty");
     gtk_window_set_default_size(GTK_WINDOW(windowMainNotSoNotFallty),270,320);
     gtk_window_present(GTK_WINDOW(windowMainNotSoNotFallty));
+    gtk_window_set_transient_for(GTK_WINDOW(windowMainNotSoNotFallty),windowMainDesktop);
 
     //Init of headerMainWindow
     headerMainWindow = gtk_header_bar_new();
