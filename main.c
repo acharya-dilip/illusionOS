@@ -132,7 +132,6 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_size_request(mainWidget.buttonNotSoSpacy, 84, 84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpacy, "DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpacy, "IconbuttonNotSoSpacy");
-    g_signal_connect(mainWidget.buttonNotSoSpacy, "clicked", G_CALLBACK(JustaGuiFramework), NULL);
     gtk_widget_set_hexpand(mainWidget.buttonNotSoSpacy,FALSE);
     gtk_widget_set_vexpand(mainWidget.buttonNotSoSpacy,FALSE);
 
@@ -143,7 +142,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_add_css_class(frameDock,"Dock");
     gtk_widget_set_halign(frameDock,GTK_ALIGN_END);
     gtk_widget_set_valign(frameDock,GTK_ALIGN_CENTER);
-    gtk_widget_set_margin_top(frameDock,405);
+    gtk_widget_set_margin_top(frameDock,405-84);
     gtk_widget_set_margin_start(frameDock,175);
 
 
