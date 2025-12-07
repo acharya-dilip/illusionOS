@@ -19,6 +19,7 @@ struct mainWidget {
     GtkWidget *buttonThreeEyedRaven;
     GtkWidget *buttonNotSoNotSecure;
     GtkWidget *buttonNotSoNotFallty;
+    GtkWidget *buttonJustaGuiFramework;
 }mainWidget;
 static void activate (GtkApplication *app,gpointer user_data) {
 
@@ -75,7 +76,7 @@ static void activate (GtkApplication *app,gpointer user_data) {
 
     //Init of buttonThreeEyedRaven
     mainWidget.buttonThreeEyedRaven = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonThreeEyedRaven,0,2,1,2);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonThreeEyedRaven,0,2,1,1);
     gtk_widget_set_size_request(mainWidget.buttonThreeEyedRaven,84,84);
     gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven,"DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven,"IconSendyMaily");
@@ -84,7 +85,7 @@ static void activate (GtkApplication *app,gpointer user_data) {
 
     //Init of buttonNotSoNotSecure
     mainWidget.buttonNotSoNotSecure = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoNotSecure,1,2,1,2);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoNotSecure,1,2,1,1);
     gtk_widget_set_size_request(mainWidget.buttonNotSoNotSecure,84,84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotSecure,"DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotSecure,"IconbuttonNotSoNotSecure");
@@ -92,11 +93,18 @@ static void activate (GtkApplication *app,gpointer user_data) {
 
     //Init of buttonNotSoNotFallty
     mainWidget.buttonNotSoNotFallty = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoNotFallty,0,3,1,2);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoNotFallty,0,3,1,1);
     gtk_widget_set_size_request(mainWidget.buttonNotSoNotFallty,84,84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotFallty,"DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotFallty,"IconbuttonNotSoNotFallty");
     g_signal_connect(mainWidget.buttonNotSoNotFallty,"clicked",G_CALLBACK(NotSoNotFallty),NULL);
+
+    //Init of buttonJustaGuiFramework
+    mainWidget.buttonJustaGuiFramework = gtk_button_new();
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonJustaGuiFramework,1,3,1,1);
+    gtk_widget_set_size_request(mainWidget.buttonJustaGuiFramework,84,84);
+    gtk_widget_add_css_class(mainWidget.buttonJustaGuiFramework,"DesktopIcon");
+    gtk_widget_add_css_class(mainWidget.buttonJustaGuiFramework,"IconbuttonJustaGuiFramework");
 }
 
 
