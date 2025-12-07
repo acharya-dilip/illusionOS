@@ -20,7 +20,6 @@ struct mainWidget {
     GtkWidget *gridParent;
     GtkWidget *frameTopBar;
     GtkWidget *labelTime;
-    GtkWidget *buttonSendyMaily;
     GtkWidget *buttonThreeEyedRaven;
     GtkWidget *buttonNotSoNotSecure;
     GtkWidget *buttonNotSoNotFallty;
@@ -81,14 +80,14 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
 
     //Init of buttonSendyMaily
-    mainWidget.buttonSendyMaily = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonSendyMaily, 1, 1, 1, 1);
-    gtk_widget_set_size_request(mainWidget.buttonSendyMaily, 84, 84);
-    gtk_widget_add_css_class(mainWidget.buttonSendyMaily, "DesktopIcon");
-    gtk_widget_add_css_class(mainWidget.buttonSendyMaily, "IconSendyMaily");
-    g_signal_connect(mainWidget.buttonSendyMaily, "clicked", G_CALLBACK(SendyMaily), NULL);
-    gtk_widget_set_hexpand(mainWidget.buttonSendyMaily,FALSE);
-    gtk_widget_set_vexpand(mainWidget.buttonSendyMaily,FALSE);
+    GtkWidget *buttonSendyMaily = gtk_button_new();
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), buttonSendyMaily, 1, 1, 1, 1);
+    gtk_widget_set_size_request(buttonSendyMaily, 84, 84);
+    gtk_widget_add_css_class(buttonSendyMaily, "DesktopIcon");
+    gtk_widget_add_css_class(buttonSendyMaily, "IconSendyMaily");
+    g_signal_connect(buttonSendyMaily, "clicked", G_CALLBACK(SendyMaily), NULL);
+    gtk_widget_set_hexpand(buttonSendyMaily,FALSE);
+    gtk_widget_set_vexpand(buttonSendyMaily,FALSE);
 
     //Init of buttonThreeEyedRaven
     mainWidget.buttonThreeEyedRaven = gtk_button_new();
