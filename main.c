@@ -13,7 +13,7 @@
 #include "SendyMaily.h"
 #include "ThreeEyedRaven.h"
 
-void updateTopBarTime();
+gboolean updateTopBarTime(gpointer user_data);
 //Global Variable
 GtkWindow *windowMainDesktop;
 struct mainWidget {
@@ -67,7 +67,8 @@ static void activate(GtkApplication *app, gpointer user_data) {
     mainWidget.labelTime = gtk_label_new("Dec 6  11:11 PM");
     gtk_frame_set_child(GTK_FRAME(mainWidget.frameTopBar), mainWidget.labelTime);
     gtk_widget_set_halign(mainWidget.labelTime, GTK_ALIGN_CENTER);
-    updateTopBarTime();
+    updateTopBarTime(NULL);
+    g_timeout_add_seconds(15,updateTopBarTime, mainWidget.labelTime);
 
     //Init of buttonNotSoSpammy
     mainWidget.buttonNotSoSpammy = gtk_button_new();
@@ -168,7 +169,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
 }
 
-void updateTopBarTime() {
+gboolean updateTopBarTime(gpointer user_data) {
     time_t rawtime;
     struct tm *timeinfo;
     time(&rawtime);
@@ -176,6 +177,8 @@ void updateTopBarTime() {
     char temp[50];
     strftime(temp, sizeof(temp), "%b %-d %l:%M %p", timeinfo);
     gtk_label_set_text(GTK_LABEL(mainWidget.labelTime),temp);
+
+    return TRUE;
 }
 
 int main(int argc, char **argv) {
