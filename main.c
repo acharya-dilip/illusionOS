@@ -11,9 +11,9 @@
 #include "SendyMaily.h"
 #include "ThreeEyedRaven.h"
 
-
+//Global Variable
+GtkWidget *windowMainDesktop;
 struct mainWidget {
-    GtkWidget *windowMain;
     GtkWidget *gridParent;
     GtkWidget *buttonNotSoSpammy;
     GtkWidget *frameTopBar;
@@ -37,21 +37,21 @@ static void activate(GtkApplication *app, gpointer user_data) {
     );
 
     //Init of windowMain
-    mainWidget.windowMain = gtk_application_window_new(app);
-    gtk_window_set_title(GTK_WINDOW(mainWidget.windowMain), "IllusionOS");
-    gtk_window_present(GTK_WINDOW(mainWidget.windowMain));
-    gtk_window_fullscreen(GTK_WINDOW(mainWidget.windowMain));
-    gtk_widget_add_css_class(mainWidget.windowMain, "Desktop");
+    windowMainDesktop = gtk_application_window_new(app);
+    gtk_window_set_title(GTK_WINDOW(windowMainDesktop), "IllusionOS");
+    gtk_window_present(GTK_WINDOW(windowMainDesktop));
+    gtk_window_fullscreen(GTK_WINDOW(windowMainDesktop));
+    gtk_widget_add_css_class(windowMainDesktop, "Desktop");
 
     //Init of gridParent
     mainWidget.gridParent = gtk_grid_new();
-    gtk_window_set_child(GTK_WINDOW(mainWidget.windowMain), mainWidget.gridParent);
+    gtk_window_set_child(GTK_WINDOW(windowMainDesktop), mainWidget.gridParent);
 
 
     //Init of frameTopBar
     mainWidget.frameTopBar = gtk_frame_new(NULL);
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.frameTopBar, 0, 0, 100, 1);
-    gtk_widget_set_size_request(mainWidget.frameTopBar, gtk_widget_get_width(mainWidget.windowMain), -1);
+    gtk_widget_set_size_request(mainWidget.frameTopBar, gtk_widget_get_width(windowMainDesktop), -1);
     gtk_widget_set_hexpand(mainWidget.frameTopBar, TRUE);
     gtk_widget_add_css_class(mainWidget.frameTopBar, "TopBar");
     //Margins & Paddings

@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <gtk/gtk.h>
 
+#include "main.h"
+
 struct widgets {
     int isOccupied;
     char widgetName[100];
