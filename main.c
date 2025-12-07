@@ -12,7 +12,7 @@
 #include "ThreeEyedRaven.h"
 
 //Global Variable
-GtkWidget *windowMainDesktop;
+GtkWindow *windowMainDesktop;
 struct mainWidget {
     GtkWidget *gridParent;
     GtkWidget *buttonNotSoSpammy;
@@ -37,11 +37,13 @@ static void activate(GtkApplication *app, gpointer user_data) {
     );
 
     //Init of windowMain
-    windowMainDesktop = gtk_application_window_new(app);
+    windowMainDesktop = GTK_WINDOW(gtk_application_window_new(app));
     gtk_window_set_title(GTK_WINDOW(windowMainDesktop), "IllusionOS");
     gtk_window_present(GTK_WINDOW(windowMainDesktop));
     gtk_window_fullscreen(GTK_WINDOW(windowMainDesktop));
-    gtk_widget_add_css_class(windowMainDesktop, "Desktop");
+    gtk_widget_add_css_class(GTK_WIDGET(windowMainDesktop), "Desktop");
+
+
 
     //Init of gridParent
     mainWidget.gridParent = gtk_grid_new();
@@ -51,7 +53,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
     //Init of frameTopBar
     mainWidget.frameTopBar = gtk_frame_new(NULL);
     gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.frameTopBar, 0, 0, 100, 1);
-    gtk_widget_set_size_request(mainWidget.frameTopBar, gtk_widget_get_width(windowMainDesktop), -1);
+    gtk_widget_set_size_request(mainWidget.frameTopBar, gtk_widget_get_width(GTK_WIDGET(windowMainDesktop)), -1);
     gtk_widget_set_hexpand(mainWidget.frameTopBar, TRUE);
     gtk_widget_add_css_class(mainWidget.frameTopBar, "TopBar");
     //Margins & Paddings
