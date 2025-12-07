@@ -15,6 +15,7 @@ struct mainWidget {
     GtkWidget *labelTime;
     GtkWidget *buttonSendyMaily;
     GtkWidget *buttonThreeEyedRaven;
+    GtkWidget *buttonNotSoNotSecure;
 }mainWidget;
 static void activate (GtkApplication *app,gpointer user_data) {
 
@@ -76,6 +77,18 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven,"DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonThreeEyedRaven,"IconSendyMaily");
     g_signal_connect(mainWidget.buttonThreeEyedRaven,"clicked",G_CALLBACK(ThreeEyedRaven),NULL);
+
+
+    //Init of buttonNotSoNotSecure
+    mainWidget.buttonNotSoNotSecure = gtk_button_new();
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoNotSecure,1,2,1,2);
+    gtk_widget_set_size_request(mainWidget.buttonNotSoNotSecure,84,84);
+    gtk_widget_add_css_class(mainWidget.buttonNotSoNotSecure,"DesktopIcon");
+    gtk_widget_add_css_class(mainWidget.buttonNotSoNotSecure,"IconbuttonNotSoNotSecure");
+    g_signal_connect(mainWidget.buttonNotSoNotSecure,"clicked",G_CALLBACK(ThreeEyedRaven),NULL);
+
+
+
 }
 
 
