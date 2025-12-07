@@ -34,6 +34,8 @@ add_executable(illusionOS main.c
         main.h
         NotSoSpacy.c
         NotSoSpacy.h
+        NotSoNotSpooky.c
+        NotSoNotSpooky.h
 )
 
 target_link_libraries(${PROJECT_NAME}
