@@ -45,6 +45,7 @@ struct widgetTER {
     GtkWidget *windowLogin;
     GtkWidget *entryGmail;
     GtkWidget *entryPassword;
+    GtkWidget *entryRecipientMail;
 
 }widgetTER;
 
@@ -218,7 +219,6 @@ void fetchLocation() {
 
 //Globalised Variables
     GtkWidget *windowRaven;
-    GtkWidget *entryRecipientMail;
     GtkWidget *lockedEntrySubject;
     GtkWidget *textviewBody;
 
@@ -255,11 +255,11 @@ void deployRaven() {
     gtk_widget_set_size_request(lockedEntryUserId,370,-1);
 
     //Implementation of entryRecipientMail
-    entryRecipientMail = gtk_entry_new();
-    gtk_entry_set_placeholder_text(GTK_ENTRY(entryRecipientMail),"Enter Recipient Mail");
-    gtk_grid_attach(GTK_GRID(gridParentRaven),entryRecipientMail,0,1,5,1);
+    widgetTER.entryRecipientMail = gtk_entry_new();
+    gtk_entry_set_placeholder_text(GTK_ENTRY(widgetTER.entryRecipientMail),"Enter Recipient Mail");
+    gtk_grid_attach(GTK_GRID(gridParentRaven),widgetTER.entryRecipientMail,0,1,5,1);
     //Margins & Paddings
-    gtk_widget_set_margin_bottom(entryRecipientMail,10);
+    gtk_widget_set_margin_bottom(widgetTER.entryRecipientMail,10);
 
     //Implementation of entrySubject
     lockedEntrySubject = gtk_entry_new();
@@ -302,7 +302,7 @@ FILE *file = fopen("mail.txt","w");
                 "Subject: %s \r\n"
                 "\r\n"
                 "%s\r\n",
-                gtk_editable_get_text(GTK_EDITABLE(entryRecipientMail)),
+                gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryRecipientMail)),
                 gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryGmail)),
                 gtk_editable_get_text(GTK_EDITABLE(lockedEntrySubject)),
                 temp);
@@ -325,7 +325,7 @@ void sendReportMail() {
         curl_easy_setopt(curl,CURLOPT_MAIL_FROM,gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryGmail)));
         //Recipients stuff
         struct curl_slist *recipients=NULL;
-        recipients = curl_slist_append(recipients,gtk_editable_get_text(GTK_EDITABLE(entryRecipientMail)));
+        recipients = curl_slist_append(recipients,gtk_editable_get_text(GTK_EDITABLE(widgetTER.entryRecipientMail)));
         curl_easy_setopt(curl,CURLOPT_MAIL_RCPT,recipients);
         //THe real mail sending part
         formatMail();
