@@ -165,6 +165,8 @@ void mainProgram() {
     gtk_window_set_title(GTK_WINDOW(windowMain),"NotSoNotSecure");
     gtk_window_present(GTK_WINDOW(windowMain));
     g_signal_connect(windowMain,"destroy",G_CALLBACK(NSNScloseProgram),NULL);
+    gtk_window_set_transient_for(GTK_WINDOW(windowMain),windowMainDesktop);
+
 
     //Init of gridParent
     gridParent = gtk_grid_new();
