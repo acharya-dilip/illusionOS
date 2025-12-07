@@ -102,6 +102,8 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotSecure, "DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotSecure, "IconbuttonNotSoNotSecure");
     g_signal_connect(mainWidget.buttonNotSoNotSecure, "clicked", G_CALLBACK(NotSoNotSecure), NULL);
+    gtk_widget_set_hexpand(mainWidget.buttonNotSoNotSecure,FALSE);
+    gtk_widget_set_vexpand(mainWidget.buttonNotSoNotSecure,FALSE);
 
     //Init of buttonNotSoNotFallty
     mainWidget.buttonNotSoNotFallty = gtk_button_new();
