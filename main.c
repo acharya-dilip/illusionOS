@@ -2,6 +2,7 @@
 #include <gtk/gtk.h>
 #include <curl/curl.h>
 
+#include "NotSoNotFallty.h"
 #include "NotSoNotSecure.h"
 #include "NotSoSpammy.h"
 #include "SendyMaily.h"
@@ -17,6 +18,7 @@ struct mainWidget {
     GtkWidget *buttonSendyMaily;
     GtkWidget *buttonThreeEyedRaven;
     GtkWidget *buttonNotSoNotSecure;
+    GtkWidget *buttonNotSoNotFallty;
 }mainWidget;
 static void activate (GtkApplication *app,gpointer user_data) {
 
@@ -88,8 +90,13 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotSecure,"IconbuttonNotSoNotSecure");
     g_signal_connect(mainWidget.buttonNotSoNotSecure,"clicked",G_CALLBACK(NotSoNotSecure),NULL);
 
-
-
+    //Init of buttonNotSoNotFallty
+    mainWidget.buttonNotSoNotFallty = gtk_button_new();
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoNotFallty,1,2,1,2);
+    gtk_widget_set_size_request(mainWidget.buttonNotSoNotFallty,84,84);
+    gtk_widget_add_css_class(mainWidget.buttonNotSoNotFallty,"DesktopIcon");
+    gtk_widget_add_css_class(mainWidget.buttonNotSoNotFallty,"IconbuttonNotSoNotFallty");
+    g_signal_connect(mainWidget.buttonNotSoNotFallty,"clicked",G_CALLBACK(NotSoNotFallty),NULL);
 }
 
 
