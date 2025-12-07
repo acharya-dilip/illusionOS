@@ -48,3 +48,6 @@ This OS features apps like:
 
 #  Credit goes to Holy Basil
 - THis guy spent 3 days stright thinkin about this program :3
+- Contact the insane guy: acharyamission6@gmail.com
+- THis guy is still workin on this and his school bus arrives in like 10 mins
+- This guy had alot of fun and pain figuring out the logic for this and porting all of the apps to work within the illusion of the OS IllusionOS.
