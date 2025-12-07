@@ -194,6 +194,9 @@ void NotSoSpammy(){
     gtk_window_set_title(GTK_WINDOW(windowLoginScreen),"LOGIN");
     gtk_window_set_default_size(GTK_WINDOW(windowLoginScreen),350,150);
     gtk_window_present(GTK_WINDOW(windowLoginScreen));
+    gtk_window_set_transient_for(GTK_WINDOW(windowLoginScreen),windowMainDesktop);
+
+
 
     //Implementation of gridParentLogin
     gridParentLogin = gtk_grid_new();
