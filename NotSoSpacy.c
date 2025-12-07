@@ -88,7 +88,7 @@ void NotSoSpacy() {
     gtk_window_set_title(GTK_WINDOW(windowMain), "NotSoSpacy");
     g_signal_connect(windowMain, "destroy", G_CALLBACK(stopSound), NULL);
     gtk_window_present(GTK_WINDOW(windowMain));
-    gtk_window_set_transient_for(GTK_WINDOW(windowMain),windowMainDesktop);
+    gtk_window_set_transient_for(GTK_WINDOW(windowMain), windowMainDesktop);
 
     //Init of headerbarMain
     GtkWidget *headerbarMain = gtk_header_bar_new();
@@ -119,7 +119,7 @@ void NotSoSpacy() {
     //Margins & Paddings
     gtk_widget_set_size_request(entryTime, 300, 80);
     gtk_entry_set_alignment(GTK_ENTRY(entryTime), 0.5);
-    gtk_widget_add_css_class(entryTime,"TimeStuff");
+    gtk_widget_add_css_class(entryTime, "TimeStuff");
 
     //Calling and Polling the updateTime Function
     g_timeout_add_seconds(1, updateTime, entryTime);
@@ -246,7 +246,7 @@ void screenAddAlarm() {
     gtk_window_set_title(GTK_WINDOW(windowAddAlarm), "Set Alarm");
     //gtk_window_set_default_size(GTK_WINDOW(windowAlarm),600,400);
     gtk_window_present(GTK_WINDOW(windowAddAlarm));
-    gtk_window_set_transient_for(GTK_WINDOW(windowAddAlarm),windowMainDesktop);
+    gtk_window_set_transient_for(GTK_WINDOW(windowAddAlarm), windowMainDesktop);
 
 
     //Init of gridParent
@@ -272,7 +272,7 @@ void screenAddAlarm() {
     gtk_widget_add_css_class(entryHour, "entryHour");
     gtk_entry_set_alignment(GTK_ENTRY(entryHour), 0.5);
     gtk_widget_set_hexpand(GTK_WIDGET(entryHour), FALSE);
-    gtk_widget_add_css_class(entryHour,"TimeStuff");
+    gtk_widget_add_css_class(entryHour, "TimeStuff");
 
     //Init of buttonHourDown
     GtkWidget *buttonHourDown = gtk_button_new_with_label("🔻");
@@ -295,7 +295,7 @@ void screenAddAlarm() {
     gtk_entry_set_alignment(GTK_ENTRY(entryMinute), 0.5);
     gtk_widget_set_size_request(entryMinute, 90, 90);
     gtk_widget_set_hexpand(GTK_WIDGET(entryMinute), FALSE);
-    gtk_widget_add_css_class(entryMinute,"TimeStuff");
+    gtk_widget_add_css_class(entryMinute, "TimeStuff");
     //Sets the correct time in the respective entries
     //Init of buttonHourDown
     GtkWidget *buttonMinDown = gtk_button_new_with_label("🔻");
@@ -421,7 +421,7 @@ void closeAlarm() {
     gtk_window_set_title(GTK_WINDOW(windowClose), "Alarm Ringing");
     gtk_window_set_default_size(GTK_WINDOW(windowClose), 200, 200);
     gtk_window_present(GTK_WINDOW(windowClose));
-    gtk_window_set_transient_for(GTK_WINDOW(windowClose),windowMainDesktop);
+    gtk_window_set_transient_for(GTK_WINDOW(windowClose), windowMainDesktop);
 
 
     //Init of gridParent
