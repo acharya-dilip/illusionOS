@@ -170,6 +170,8 @@ void initghrepo() {
     windowGhRepo = gtk_window_new();
     gtk_window_set_title(GTK_WINDOW(windowGhRepo),"Create Github Repo");
     gtk_window_present(GTK_WINDOW(windowGhRepo));
+    gtk_window_set_transient_for(GTK_WINDOW(windowGhRepo),windowMainDesktop);
+
 
     //Init of gridParent
     gridParent = gtk_grid_new();
