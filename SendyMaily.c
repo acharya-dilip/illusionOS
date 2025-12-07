@@ -3,6 +3,7 @@
 //
 
 #include "SendyMaily.h"
+#include "main.h"
 
 #include <stdio.h>
 #include <gtk/gtk.h>
@@ -34,6 +35,8 @@ void SendyMaily () {
     gtk_window_set_title(GTK_WINDOW(SendyMailyStuff.windowLoginScreen),"LOGIN");
     gtk_window_set_default_size(GTK_WINDOW(SendyMailyStuff.windowLoginScreen),350,150);
     gtk_window_present(GTK_WINDOW(SendyMailyStuff.windowLoginScreen));
+    gtk_window_set_transient_for(GTK_WINDOW(SendyMailyStuff.windowLoginScreen),windowMainDesktop);
+
 
     //Implementation of the parent grid for login Window
     gridParentLoginScreen = gtk_grid_new();
