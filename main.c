@@ -92,7 +92,7 @@ static void activate (GtkApplication *app,gpointer user_data) {
 
     //Init of buttonNotSoNotFallty
     mainWidget.buttonNotSoNotFallty = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoNotFallty,1,2,1,2);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),mainWidget.buttonNotSoNotFallty,0,3,1,2);
     gtk_widget_set_size_request(mainWidget.buttonNotSoNotFallty,84,84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotFallty,"DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotFallty,"IconbuttonNotSoNotFallty");
