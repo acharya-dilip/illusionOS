@@ -128,7 +128,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
     //Init of buttonNotSoSpacy
     mainWidget.buttonNotSoSpacy = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonNotSoSpacy, 1, 3, 1, 1);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonNotSoSpacy, 0, 4, 1, 1);
     gtk_widget_set_size_request(mainWidget.buttonNotSoSpacy, 84, 84);
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpacy, "DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpacy, "IconbuttonNotSoSpacy");
