@@ -63,7 +63,7 @@ void storeData() {
 //Globalised Variables
 GtkWidget *gridParentAlarms;
 GtkWidget *entryTime;
-static void activate(GtkApplication *app,gpointer user_data) {
+void NotSoSpacy () {
     //Fectches the data from alarms.txt binary
     fetchData();
     //Connecting the stylesheet
