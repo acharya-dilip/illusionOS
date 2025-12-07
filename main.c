@@ -146,15 +146,16 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_vexpand(buttonNotSoNotSpooky,FALSE);
 
 
-    //Init of frameDock
-    GtkWidget *frameDock = gtk_frame_new(NULL);
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), frameDock, 10, 30, 10, 1);
-    gtk_widget_set_size_request(frameDock, 74 * 6, 74);
-    gtk_widget_add_css_class(frameDock, "Dock");
-    gtk_widget_set_halign(frameDock, GTK_ALIGN_END);
-    gtk_widget_set_valign(frameDock, GTK_ALIGN_CENTER);
-    gtk_widget_set_margin_top(frameDock, 405 - 84);
-    gtk_widget_set_margin_start(frameDock, 175);
+//     //Init of frameDock
+//     GtkWidget *frameDock = gtk_frame_new(NULL);
+//     gtk_grid_attach(GTK_GRID(mainWidget.gridParent), frameDock, 10, 30, 10, 1);
+//     gtk_widget_set_size_request(frameDock, 74 * 6, 74);
+//     gtk_widget_add_css_class(frameDock, "Dock");
+//     gtk_widget_set_halign(frameDock, GTK_ALIGN_END);
+//     gtk_widget_set_valign(frameDock, GTK_ALIGN_CENTER);
+//     gtk_widget_set_margin_top(frameDock, 405 - 84);
+//     gtk_widget_set_margin_start(frameDock, 175);
+
 }
 
 //This is a continious Poling function that fetches the current time every 15 seconds
