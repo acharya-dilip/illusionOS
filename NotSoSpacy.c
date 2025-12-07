@@ -244,6 +244,9 @@ void screenAddAlarm() {
     gtk_window_set_title(GTK_WINDOW(windowAddAlarm), "Set Alarm");
     //gtk_window_set_default_size(GTK_WINDOW(windowAlarm),600,400);
     gtk_window_present(GTK_WINDOW(windowAddAlarm));
+    gtk_window_set_transient_for(GTK_WINDOW(windowAddAlarm),windowMainDesktop);
+
+
     //Init of gridParent
     GtkWidget *gridParent = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(windowAddAlarm), gridParent);
