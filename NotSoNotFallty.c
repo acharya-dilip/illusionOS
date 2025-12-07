@@ -8,6 +8,8 @@
 #include <gtk/gtk.h>
 #include <curl/curl.h>
 
+#include "main.h"
+
 void initProject();
 void navFolder();
 void setFilePath(GObject *source, GAsyncResult *res, gpointer user_data);
@@ -54,6 +56,7 @@ void initProject() {
     windowInit = gtk_window_new();
     gtk_window_set_title(GTK_WINDOW(windowInit),"Navigate to Project");
     gtk_window_present(GTK_WINDOW(windowInit));
+    gtk_window_set_transient_for(GTK_WINDOW(windowInit),windowMainDesktop);
 
     //Init of headerInitProj
     headerInitProj = gtk_header_bar_new();
