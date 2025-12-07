@@ -3,6 +3,7 @@
 //
 
 #include "NotSoNotSecure.h"
+#include "main.h"
 
 #include <stdio.h>
 #include <gtk/gtk.h>
@@ -49,6 +50,7 @@ void NotSoNotSecure(){
     gtk_window_set_title(GTK_WINDOW(NotSoNotSecureWidget.windowLogin),"Login");
     gtk_window_set_default_size(GTK_WINDOW(NotSoNotSecureWidget.windowLogin),300,150);
     gtk_window_present(GTK_WINDOW(NotSoNotSecureWidget.windowLogin));
+    gtk_window_set_transient_for(GTK_WINDOW(NotSoNotSecureWidget.windowLogin),windowMainDesktop);
 
     //Initalisation of gridParentLogin
     gridParentLogin = gtk_grid_new();
