@@ -591,18 +591,18 @@ void on_file_selected(GObject *source, GAsyncResult *res, gpointer user_data) {
         declareWidgetLabels();
         widgetCount--;
     }
-    char filepath[200];
+    char filepathJustaGuiFramework[200];
 
     void exportGuiData() {
         //Writes the widget data in binary for other program to read
-        if (strcmp(filepath,"")==0) {
+        if (strcmp(filepathJustaGuiFramework,"")==0) {
             FILE *file1 = fopen("ExportedGui/build/widget.data","w");
             fwrite(&widgetCount,sizeof(widgetCount),1,file1);
             fwrite(&widget,sizeof(widget),widgetCount,file1);
             fclose(file1);
         }else {
             char temp[250];
-            snprintf(temp,sizeof(temp),"%s/widget.data",filepath);
+            snprintf(temp,sizeof(temp),"%s/widget.data",filepathJustaGuiFramework);
             FILE *file1 = fopen(temp,"w");
             fwrite(&widgetCount,sizeof(widgetCount),1,file1);
             fwrite(&widget,sizeof(widget),widgetCount,file1);
@@ -671,7 +671,7 @@ void setFilePathFramework(GObject *source, GAsyncResult *res, gpointer user_data
         GtkFileDialog *dialogNav = GTK_FILE_DIALOG(source);
         GFile *folder = gtk_file_dialog_select_folder_finish(dialogNav, res, NULL);
         char *path = g_file_get_path(folder);
-        strcpy(filepath,path);
+        strcpy(filepathJustaGuiFramework,path);
         //Set the entryDir to the desired file path
         gtk_editable_set_text(GTK_EDITABLE(entryFilePath),path);
 
