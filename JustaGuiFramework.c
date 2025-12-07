@@ -480,7 +480,8 @@ void JustaGuiFramework() {
     //init of labelWidgets
     GtkWidget *labelWidgets = gtk_label_new("Widgets");
     gtk_grid_attach(GTK_GRID(gridParent), labelWidgets, 0, 0, 10, 1);
-    gtk_widget_add_css_class(labelWidgets, "labelWidgets");
+    gtk_widget_add_css_class(labelWidgets, "BigLabel");
+
     //Init of scrolledWindowWidgets
     scrolledWindowWidgets = gtk_scrolled_window_new();
     gtk_grid_attach(GTK_GRID(gridParent), scrolledWindowWidgets, 0, 1, 10, 10);
