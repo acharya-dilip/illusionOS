@@ -81,6 +81,8 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_add_css_class(mainWidget.buttonSendyMaily, "DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonSendyMaily, "IconSendyMaily");
     g_signal_connect(mainWidget.buttonSendyMaily, "clicked", G_CALLBACK(SendyMaily), NULL);
+    gtk_widget_set_hexpand(mainWidget.buttonSendyMaily,FALSE);
+    gtk_widget_set_vexpand(mainWidget.buttonSendyMaily,FALSE);
 
     //Init of buttonThreeEyedRaven
     mainWidget.buttonThreeEyedRaven = gtk_button_new();
