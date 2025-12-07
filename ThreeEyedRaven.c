@@ -553,3 +553,4 @@ void updateWeatherInfo(){
 void closeProgram(){
     gtk_window_destroy(GTK_WINDOW(widgetTER.windowLogin));
 }
+
