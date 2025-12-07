@@ -135,6 +135,7 @@ void screenAddWidget() {
 
     widgetAttributeWidgets(windowAddWidget, widgetCount);
 
+    GtkWidget *Desktop = windowAddWidget;
 
     //Init of buttonAddWidget
     GtkWidget *buttonRegisterWidget = gtk_button_new_with_label("Add Widget");
