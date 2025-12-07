@@ -111,6 +111,13 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_add_css_class(mainWidget.buttonJustaGuiFramework, "DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonJustaGuiFramework, "IconbuttonJustaGuiFramework");
     g_signal_connect(mainWidget.buttonJustaGuiFramework, "clicked", G_CALLBACK(JustaGuiFramework), NULL);
+
+    //Init of frameDock
+    GtkWidget *frameDock = gtk_frame_new(NULL);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),frameDock,0,20,6,1);
+
+
+
 }
 
 
