@@ -114,7 +114,10 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
     //Init of frameDock
     GtkWidget *frameDock = gtk_frame_new(NULL);
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),frameDock,0,20,6,1);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),frameDock,0,20,10,1);
+    gtk_widget_set_size_request(frameDock,74*6,74);
+    gtk_widget_set_halign(frameDock,GTK_ALIGN_END);
+    gtk_widget_set_valign(frameDock,GTK_ALIGN_CENTER);
 
 
 
