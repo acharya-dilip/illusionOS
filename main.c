@@ -112,6 +112,8 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotFallty, "DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoNotFallty, "IconbuttonNotSoNotFallty");
     g_signal_connect(mainWidget.buttonNotSoNotFallty, "clicked", G_CALLBACK(NotSoNotFallty), NULL);
+    gtk_widget_set_hexpand(mainWidget.buttonNotSoNotFallty,FALSE);
+    gtk_widget_set_vexpand(mainWidget.buttonNotSoNotFallty,FALSE);
 
     //Init of buttonJustaGuiFramework
     mainWidget.buttonJustaGuiFramework = gtk_button_new();
