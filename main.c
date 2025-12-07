@@ -70,6 +70,9 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy, "DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy, "IconNotSoSpammy");
     g_signal_connect(mainWidget.buttonNotSoSpammy, "clicked", G_CALLBACK(NotSoSpammy), NULL);
+    gtk_widget_set_hexpand(mainWidget.buttonNotSoSpammy,FALSE);
+    gtk_widget_set_vexpand(mainWidget.buttonNotSoSpammy,FALSE);
+
 
     //Init of buttonSendyMaily
     mainWidget.buttonSendyMaily = gtk_button_new();
@@ -114,7 +117,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
     //Init of frameDock
     GtkWidget *frameDock = gtk_frame_new(NULL);
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),frameDock,0,30,10,1);
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent),frameDock,10,30,10,1);
     gtk_widget_set_size_request(frameDock,74*6,74);
     gtk_widget_add_css_class(frameDock,"Dock");
     gtk_widget_set_halign(frameDock,GTK_ALIGN_END);
