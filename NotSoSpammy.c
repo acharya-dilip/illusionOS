@@ -3,6 +3,7 @@
 //
 
 #include "NotSoSpammy.h"
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include<gtk/gtk.h>
@@ -72,6 +73,7 @@ static void windowMain() {
     gtk_window_set_default_size (GTK_WINDOW (NotSoSpammyWindow), 400, 400);
     gtk_window_present (GTK_WINDOW (NotSoSpammyWindow));
     g_signal_connect(NotSoSpammyWindow, "close-request",G_CALLBACK(closeLoginWindow),NULL);
+    gtk_window_set_transient_for(GTK_WINDOW(NotSoSpammyWindow),windowMainDesktop);
 
 
 
