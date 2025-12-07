@@ -2,6 +2,7 @@
 #include <gtk/gtk.h>
 #include <curl/curl.h>
 
+#include "JustaGuiFramework.h"
 #include "NotSoNotFallty.h"
 #include "NotSoNotSecure.h"
 #include "NotSoSpammy.h"
@@ -105,6 +106,8 @@ static void activate (GtkApplication *app,gpointer user_data) {
     gtk_widget_set_size_request(mainWidget.buttonJustaGuiFramework,84,84);
     gtk_widget_add_css_class(mainWidget.buttonJustaGuiFramework,"DesktopIcon");
     gtk_widget_add_css_class(mainWidget.buttonJustaGuiFramework,"IconbuttonJustaGuiFramework");
+    g_signal_connect(mainWidget.buttonJustaGuiFramework,"clicked",G_CALLBACK(JustaGuiFramework),NULL);
+
 }
 
 
