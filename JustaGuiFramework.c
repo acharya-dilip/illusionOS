@@ -643,6 +643,8 @@ void exportGui() {
     gtk_window_set_default_size(GTK_WINDOW(windowExportGui), 300, 150);
     gtk_window_set_title(GTK_WINDOW(windowExportGui), "Export To:");
     gtk_window_present(GTK_WINDOW(windowExportGui));
+    gtk_window_set_transient_for(GTK_WINDOW(windowExportGui),windowMainDesktop);
+
 
     //Init of gridExportGui
     GtkWidget *gridExportGui = gtk_grid_new();
