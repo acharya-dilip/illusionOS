@@ -8,7 +8,7 @@
 #include <gtk/gtk.h>
 #include <curl/curl.h>
 
-void checkLogin();
+void TERcheckLogin();
 void mainWindow();
 void deployRaven();
 void closeProgram();
@@ -101,11 +101,11 @@ void ThreeEyedRaven() {
     //Implementation of Button Login
     buttonLogin = gtk_button_new_with_label("Login");
     gtk_grid_attach(GTK_GRID(gridParentLogin),buttonLogin,1,2,4,1);
-    g_signal_connect(buttonLogin,"clicked",G_CALLBACK(checkLogin),NULL);
+    g_signal_connect(buttonLogin,"clicked",G_CALLBACK(TERcheckLogin),NULL);
 
 }
 
-void checkLogin() {
+void TERcheckLogin() {
     CURL *curl = curl_easy_init();
     CURLcode result;
     if (curl) {
