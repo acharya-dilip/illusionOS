@@ -4,6 +4,7 @@
 
 #include "NotSoSpammy.h"
 #include "SendyMaily.h"
+#include "ThreeEyedRaven.h"
 
 
 struct mainWidget {

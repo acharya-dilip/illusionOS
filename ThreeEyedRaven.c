@@ -49,63 +49,6 @@ struct widgetTER {
 
 }widgetTER;
 
-void ThreeEyedRaven() {
-    GtkWidget *gridParentLogin;
-    GtkWidget *labelGmail;
-    GtkWidget *labelPassword;
-    GtkWidget *buttonLogin;
-
-    //Implementation of login window
-    widgetTER.windowLogin = gtk_window_new();
-    gtk_window_set_title(GTK_WINDOW(widgetTER.windowLogin),"Login");
-    gtk_window_present(GTK_WINDOW(widgetTER.windowLogin));
-
-    //Implementation of gridParent
-    gridParentLogin = gtk_grid_new();
-    gtk_window_set_child(GTK_WINDOW(widgetTER.windowLogin),gridParentLogin);
-    //Margins & Paddings
-        gtk_widget_set_halign(gridParentLogin,GTK_ALIGN_CENTER);
-        gtk_widget_set_margin_top(gridParentLogin,10);
-        gtk_widget_set_margin_bottom(gridParentLogin,10);
-        gtk_widget_set_margin_start(gridParentLogin,10);
-        gtk_widget_set_margin_end(gridParentLogin,10);
-
-    //Implementation of labelGmail
-    labelGmail= gtk_label_new("Gmail: ");
-    gtk_grid_attach(GTK_GRID(gridParentLogin),labelGmail,0,0,1,1);
-
-    //Implementation of labelPassword
-    labelPassword= gtk_label_new("Pass: ");
-    gtk_grid_attach(GTK_GRID(gridParentLogin),labelPassword,0,1,1,1);
-
-    //Margins & Paddings
-        gtk_widget_set_halign(labelGmail,GTK_ALIGN_END);
-        gtk_widget_set_halign(labelPassword,GTK_ALIGN_END);
-        gtk_widget_set_margin_end(labelGmail,10);
-        gtk_widget_set_margin_bottom(labelGmail,10);
-        gtk_widget_set_margin_end(labelPassword,10);
-        gtk_widget_set_margin_bottom(labelPassword,10);
-
-    //Implementation of entryGmail
-    widgetTER.entryGmail = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(gridParentLogin),widgetTER.entryGmail,1,0,4,1);
-
-    //IMplementation of entryPassword
-    widgetTER.entryPassword = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(gridParentLogin),widgetTER.entryPassword,1,1,4,1);
-    gtk_entry_set_visibility(GTK_ENTRY(widgetTER.entryPassword),FALSE);
-
-    //Margins & Paddings
-        gtk_widget_set_size_request(widgetTER.entryGmail,200,-1);
-        gtk_widget_set_size_request(widgetTER.entryPassword,200,-1);
-
-    //Implementation of Button Login
-    buttonLogin = gtk_button_new_with_label("Login");
-    gtk_grid_attach(GTK_GRID(gridParentLogin),buttonLogin,1,2,4,1);
-    g_signal_connect(buttonLogin,"clicked",G_CALLBACK(TERcheckLogin),NULL);
-
-}
-
 void TERcheckLogin() {
     CURL *curl = curl_easy_init();
     CURLcode result;
@@ -134,6 +77,64 @@ void TERcheckLogin() {
     }
 
 }
+
+void ThreeEyedRaven() {
+    GtkWidget *gridParentLogin;
+    GtkWidget *labelGmail;
+    GtkWidget *labelPassword;
+    GtkWidget *buttonLogin;
+
+    //Implementation of login window
+    widgetTER.windowLogin = gtk_window_new();
+    gtk_window_set_title(GTK_WINDOW(widgetTER.windowLogin),"Login");
+    gtk_window_present(GTK_WINDOW(widgetTER.windowLogin));
+
+    //Implementation of gridParent
+    gridParentLogin = gtk_grid_new();
+    gtk_window_set_child(GTK_WINDOW(widgetTER.windowLogin),gridParentLogin);
+    //Margins & Paddings
+    gtk_widget_set_halign(gridParentLogin,GTK_ALIGN_CENTER);
+    gtk_widget_set_margin_top(gridParentLogin,10);
+    gtk_widget_set_margin_bottom(gridParentLogin,10);
+    gtk_widget_set_margin_start(gridParentLogin,10);
+    gtk_widget_set_margin_end(gridParentLogin,10);
+
+    //Implementation of labelGmail
+    labelGmail= gtk_label_new("Gmail: ");
+    gtk_grid_attach(GTK_GRID(gridParentLogin),labelGmail,0,0,1,1);
+
+    //Implementation of labelPassword
+    labelPassword= gtk_label_new("Pass: ");
+    gtk_grid_attach(GTK_GRID(gridParentLogin),labelPassword,0,1,1,1);
+
+    //Margins & Paddings
+    gtk_widget_set_halign(labelGmail,GTK_ALIGN_END);
+    gtk_widget_set_halign(labelPassword,GTK_ALIGN_END);
+    gtk_widget_set_margin_end(labelGmail,10);
+    gtk_widget_set_margin_bottom(labelGmail,10);
+    gtk_widget_set_margin_end(labelPassword,10);
+    gtk_widget_set_margin_bottom(labelPassword,10);
+
+    //Implementation of entryGmail
+    widgetTER.entryGmail = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(gridParentLogin),widgetTER.entryGmail,1,0,4,1);
+
+    //IMplementation of entryPassword
+    widgetTER.entryPassword = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(gridParentLogin),widgetTER.entryPassword,1,1,4,1);
+    gtk_entry_set_visibility(GTK_ENTRY(widgetTER.entryPassword),FALSE);
+
+    //Margins & Paddings
+    gtk_widget_set_size_request(widgetTER.entryGmail,200,-1);
+    gtk_widget_set_size_request(widgetTER.entryPassword,200,-1);
+
+    //Implementation of Button Login
+    buttonLogin = gtk_button_new_with_label("Login");
+    gtk_grid_attach(GTK_GRID(gridParentLogin),buttonLogin,1,2,4,1);
+    g_signal_connect(buttonLogin,"clicked",G_CALLBACK(TERcheckLogin),NULL);
+
+}
+
 //Globalised Variables
 GtkWidget *entryLocation;
 GtkWidget *textviewWeatherInfo;
