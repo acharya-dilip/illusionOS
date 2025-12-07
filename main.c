@@ -170,7 +170,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
 
 }
-
+//This is a continious Poling function that fetches the current time every 15 seconds
 gboolean updateTopBarTime(gpointer user_data) {
     time_t rawtime;
     struct tm *timeinfo;
