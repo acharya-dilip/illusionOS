@@ -448,6 +448,7 @@ void config() {
     windowConfig = gtk_window_new();
     gtk_window_set_title(GTK_WINDOW(windowConfig),"Configure");
     gtk_window_present(GTK_WINDOW(windowConfig));
+    gtk_window_set_transient_for(GTK_WINDOW(windowConfig),windowMainDesktop);
 
     //Init of headerConfig
     headerConfig = gtk_header_bar_new();
