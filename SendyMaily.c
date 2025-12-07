@@ -164,6 +164,8 @@ void displaySendyMaily() {
     gtk_window_present(GTK_WINDOW(windowSendyMaily));
     //Call closeApp function when windowSendyMail get's closed
     g_signal_connect(windowSendyMaily,"destroy",G_CALLBACK(SendyMailycloseApp),NULL);
+    gtk_window_set_transient_for(GTK_WINDOW(windowSendyMaily),windowMainDesktop);
+
 
     //Implementation of headerBarSendyMaily
     headerbarSendyMaily = gtk_header_bar_new();
