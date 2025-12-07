@@ -202,7 +202,7 @@ void numButPress(GtkButton *button,gpointer user_data) {
         }
     }
     else{
-        system("gst-play-1.0 ./sounds/soundWoosh.mp3 >/dev/null 2>&1 &");
+        system("gst-play-1.0 ./src/sounds/soundWoosh.mp3 >/dev/null 2>&1 &");
     }
     if (spookyThreshold>=40) {
         randomSpook();
@@ -224,7 +224,7 @@ void checkSixSeven(int x) {
 }
 
 void sixSeven(){
-    system("gst-play-1.0 ./sounds/67.mp3 >/dev/null 2>&1 &");
+    system("gst-play-1.0 ./src/sounds/67.mp3 >/dev/null 2>&1 &");
 }
 
 void checkSixtyNine(int x) {
@@ -242,7 +242,7 @@ void checkSixtyNine(int x) {
 }
 
 void sixtyNine() {
-    system("gst-play-1.0 ./sounds/69.mp3 >/dev/null 2>&1 &");
+    system("gst-play-1.0 ./src/sounds/69.mp3 >/dev/null 2>&1 &");
 }
 
 void operandPress(GtkButton *button,gpointer operand) {
@@ -322,7 +322,7 @@ void performCalculation() {
         //if result isn't obtained properly displays error
         gtk_editable_set_text(GTK_EDITABLE(entryCal),"Error!");
         //PLays the womanScreaming sound effect
-        system("gst-play-1.0 ./sounds/womanScream.mp3 >/dev/null 2>&1 &");
+        system("gst-play-1.0 ./src/sounds/womanScream.mp3 >/dev/null 2>&1 &");
         //Increases the spookThreshold
         spookyThreshold+=20;
     }
@@ -362,7 +362,7 @@ void clearEntry() {
 GtkCssProvider *provider = NULL;
 void performSpooky() {
     spookyStatus = 1;
-    system("gst-play-1.0 ./sounds/scream.mp3 >/dev/null 2>&1 &");
+    system("gst-play-1.0 ./src/sounds/scream.mp3 >/dev/null 2>&1 &");
     sleep(2);
     //COnnects the spookyStyles.css stylesheet
     provider = gtk_css_provider_new();
@@ -373,7 +373,7 @@ void performSpooky() {
         GTK_STYLE_PROVIDER(provider),
         GTK_STYLE_PROVIDER_PRIORITY_USER
     );;
-    system("while true; do gst-play-1.0 ./sounds/bells.mp3 >/dev/null 2>&1; done &");
+    system("while true; do gst-play-1.0 ./src/sounds/bells.mp3 >/dev/null 2>&1; done &");
     if (spookyThreshold>=40) {
         randomSpook();
     }
@@ -384,19 +384,19 @@ void randomSpook() {
     int spookRes;
     switch (random) {
         case 1:
-            system("gst-play-1.0 ./sounds/creepy.mp3 >/dev/null 2>&1 &");
+            system("gst-play-1.0 ./src/sounds/creepy.mp3 >/dev/null 2>&1 &");
             spookRes=0;
             break;
         case 2:
-            system("gst-play-1.0 ./sounds/scream.mp3 >/dev/null 2>&1 &");
+            system("gst-play-1.0 ./src/src/sounds/scream.mp3 >/dev/null 2>&1 &");
             spookRes=0;
             break;
         case 3:
-            system("gst-play-1.0 ./sounds/womanScream.mp3 >/dev/null 2>&1 &");
+            system("gst-play-1.0 ./src/sounds/womanScream.mp3 >/dev/null 2>&1 &");
             spookRes=0;
             break;
         case 4:
-            system("gst-play-1.0 ./sounds/witchLaugh.mp3 >/dev/null 2>&1 &");
+            system("gst-play-1.0 ./src/sounds/witchLaugh.mp3 >/dev/null 2>&1 &");
             spookRes=0;
         default:
             printf("No Spooks");
@@ -411,7 +411,7 @@ void godsEnlightenment() {
     //Gives some buffer time before the person gets spooked again
     spookyThreshold = -500;
     //kills the gstreamer processes to stop the spooky sounds
-    system("pkill -f 'while true; do gst-play-1.0 ./sounds/bells.mp3'");
+    system("pkill -f 'while true; do gst-play-1.0 ./src/sounds/bells.mp3'");
     system(" pkill gst-play-1.0");
     //Now aaaaaaaaaaaaaaall we gotta figure out is how to stop the css
     GdkDisplay *display = gdk_display_get_default();
