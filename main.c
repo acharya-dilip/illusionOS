@@ -2,6 +2,7 @@
 #include <gtk/gtk.h>
 #include <curl/curl.h>
 
+#include "NotSoNotSecure.h"
 #include "NotSoSpammy.h"
 #include "SendyMaily.h"
 #include "ThreeEyedRaven.h"
