@@ -30,29 +30,34 @@
     }
 }
 .IconNotSoSpammy{
-
+    background-image: url("source/NotSoSpammy.png");
+    background-position: center;
 }
 .IconSendyMaily{
-
+    background-image: url("source/SendyMaily.png");
+    background-position: center;
 }
 .IconThreeEyedRaven{
-
+    background-image: url("source/ThreeEyedRaven.png");
+    background-position: center;
 }
 .IconNotSoNotSecure{
-
+    background-image: url("source/NotSoNotSecure.png");
+    background-position: center;
 }
 .IconNotSoNotFallty{
-
+    background-image: url("source/NotSoNotFallty.png");
+    background-position: center;
 }
 .IconJustaGuiFramework{
-
+    background-image: url("source/JustaGuiFramework.png");
+    background-position: center;
 }
 .IconNotSoSpacy{
-
+    background-image: url("source/NotSoSpacy.png");
+    background-position: center;
 }
 .IconNotSoNotSpooky{
-
-}
-.Dock{
-
+    background-image: url("source/NotSoNotSpooky.png");
+    background-position: center;
 }
