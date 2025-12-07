@@ -45,3 +45,6 @@ This OS features apps like:
 | cd build                  | Navigates into the build dir |
 | cmake ..                  | Checks for the Cmake file    |
 | cmake --build .           | Executes the build           |
+
+#  Credit goes to Holy Basil
+- THis guy spent 3 days stright thinkin about this program :3
