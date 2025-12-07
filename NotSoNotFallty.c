@@ -226,6 +226,7 @@ void createghrepo(){
 
 }
 
+
 //Globalised Variables
     GtkWidget
     *entryCommitTitle,
