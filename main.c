@@ -18,7 +18,6 @@ gboolean updateTopBarTime(gpointer user_data);
 GtkWindow *windowMainDesktop;
 struct mainWidget {
     GtkWidget *gridParent;
-    GtkWidget *buttonNotSoSpammy;
     GtkWidget *frameTopBar;
     GtkWidget *labelTime;
     GtkWidget *buttonSendyMaily;
@@ -71,14 +70,14 @@ static void activate(GtkApplication *app, gpointer user_data) {
     g_timeout_add_seconds(15,updateTopBarTime, mainWidget.labelTime);
 
     //Init of buttonNotSoSpammy
-    mainWidget.buttonNotSoSpammy = gtk_button_new();
-    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), mainWidget.buttonNotSoSpammy, 0, 1, 1, 1);
-    gtk_widget_set_size_request(mainWidget.buttonNotSoSpammy, 84, 84);
-    gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy, "DesktopIcon");
-    gtk_widget_add_css_class(mainWidget.buttonNotSoSpammy, "IconNotSoSpammy");
-    g_signal_connect(mainWidget.buttonNotSoSpammy, "clicked", G_CALLBACK(NotSoSpammy), NULL);
-    gtk_widget_set_hexpand(mainWidget.buttonNotSoSpammy,FALSE);
-    gtk_widget_set_vexpand(mainWidget.buttonNotSoSpammy,FALSE);
+    GtkWidget *buttonNotSoSpammy = gtk_button_new();
+    gtk_grid_attach(GTK_GRID(mainWidget.gridParent), buttonNotSoSpammy, 0, 1, 1, 1);
+    gtk_widget_set_size_request(buttonNotSoSpammy, 84, 84);
+    gtk_widget_add_css_class(buttonNotSoSpammy, "DesktopIcon");
+    gtk_widget_add_css_class(buttonNotSoSpammy, "IconNotSoSpammy");
+    g_signal_connect(buttonNotSoSpammy, "clicked", G_CALLBACK(NotSoSpammy), NULL);
+    gtk_widget_set_hexpand(buttonNotSoSpammy,FALSE);
+    gtk_widget_set_vexpand(buttonNotSoSpammy,FALSE);
 
 
     //Init of buttonSendyMaily
