@@ -12,7 +12,9 @@
     border-radius: 0;
 }
 .BigLabel{
-
+    color: lightgray;
+    font-size: 40px;
+    font-weight: bold;
 }
 .TimeStuff{
 
