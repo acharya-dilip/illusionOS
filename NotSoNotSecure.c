@@ -29,7 +29,7 @@ char globalAddText[1024];
     GtkWidget *entryGmail;
     GtkWidget *entryPassword;
     GtkWidget *checkButtonSaveLogin;
-static void activate(GtkApplication *app,gpointer user_data) {
+void NotSoNotSecure{
 
     FILE *file = fopen("credentials.txt","a");
     fclose(file);
@@ -295,16 +295,4 @@ size_t write_callback(void *ptr, size_t size, size_t nmemb, void *userdata) {
     memcpy(temp,ptr,total);
     temp[total]='\0';
     return total;
-}
-
-int main(int argc, char **argv){
-    GtkApplication *app;
-    int status;
-    app= gtk_application_new ("org.gtk.example", G_APPLICATION_DEFAULT_FLAGS);
-    g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
-    status = g_application_run (G_APPLICATION (app), argc, argv);
-    g_object_unref (app);
-
-
-    return status;
 }
