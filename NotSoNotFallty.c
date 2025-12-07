@@ -579,3 +579,4 @@ void fetchGitCredentials() {
     gtk_editable_set_text(GTK_EDITABLE(entryToken),patoken);
 }
 
+
