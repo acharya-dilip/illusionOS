@@ -23,6 +23,8 @@ add_executable(illusionOS main.c
         SendyMaily.h
         NotSoSpammy.c
         NotSoSpammy.h
+        ThreeEyedRaven.c
+        ThreeEyedRaven.h
 )
 
 target_link_libraries(${PROJECT_NAME}
