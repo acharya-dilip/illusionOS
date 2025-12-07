@@ -59,7 +59,7 @@ void widgetAttributeWidgets(GtkWidget *window, int i);
 void editWidget(GtkButton *button, gpointer user_data);
 void importGui();
 void readWidgetData(char *filepath);
-void navFolder();
+void navFolderFramework();
 
 
 
@@ -657,7 +657,7 @@ void exportGui() {
     //Init of buttonChoosePath
     GtkWidget *buttonChoosePath = gtk_button_new_with_label("📂");
     gtk_grid_attach(GTK_GRID(gridExportGui),buttonChoosePath,20,0,1,1);
-    g_signal_connect(buttonChoosePath,"clicked",G_CALLBACK(navFolder),NULL);
+    g_signal_connect(buttonChoosePath,"clicked",G_CALLBACK(navFolderFramework),NULL);
 
     //Init of buttonExport
     GtkWidget *buttonExport = gtk_button_new_with_label("Export");
@@ -676,7 +676,7 @@ void setFilePath(GObject *source, GAsyncResult *res, gpointer user_data) {
         gtk_editable_set_text(GTK_EDITABLE(entryFilePath),path);
 
     }
-void navFolder() {
+void navFolderFramework() {
         GtkWindow *windowNav = GTK_WINDOW(NULL);
         GtkFileDialog *dialogNav = gtk_file_dialog_new();
 
