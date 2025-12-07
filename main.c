@@ -168,10 +168,13 @@ static void activate(GtkApplication *app, gpointer user_data) {
 }
 
 void updateTopBarTime() {
-    time_t now = time(NULL);
-    struct tm *t = localtime(&now);
-    int hour = t->tm_hour;
-    int minute = t->tm_min;
+    time_t rawtime;
+    struct tm *timeinfo;
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    char temp[50];
+    strftime(temp, sizeof(temp), "%b %-d %l:%M %p", timeinfo);
+    gtk_label_set_text(GTK_LABEL(mainWidget.labelTime),temp);
 }
 
 int main(int argc, char **argv) {
