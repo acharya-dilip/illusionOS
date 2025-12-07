@@ -155,6 +155,7 @@ void mainWindow() {
     gtk_window_set_default_size(GTK_WINDOW(windowMain),400,400);
     gtk_window_present(GTK_WINDOW(windowMain));
     g_signal_connect(windowMain,"destroy",G_CALLBACK(closeProgram),NULL);
+    gtk_window_set_transient_for(GTK_WINDOW(windowMain),windowMainDesktop);
 
     //Implementation of gridParent
     gridParent = gtk_grid_new();
@@ -236,6 +237,7 @@ void deployRaven() {
     gtk_window_set_title(GTK_WINDOW(windowRaven),"Deploy the Raven");
     gtk_window_set_default_size(GTK_WINDOW(windowRaven),400,400);
     gtk_window_present(GTK_WINDOW(windowRaven));
+    gtk_window_set_transient_for(GTK_WINDOW(windowRaven),windowMainDesktop);
 
     //Implementation of gridParentRaven
     gridParentRaven = gtk_grid_new();
