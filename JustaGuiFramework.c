@@ -666,7 +666,7 @@ void exportGui() {
 
 
 }
-void setFilePath(GObject *source, GAsyncResult *res, gpointer user_data) {
+void setFilePathFramework(GObject *source, GAsyncResult *res, gpointer user_data) {
         //Fetches the file path
         GtkFileDialog *dialogNav = GTK_FILE_DIALOG(source);
         GFile *folder = gtk_file_dialog_select_folder_finish(dialogNav, res, NULL);
@@ -683,7 +683,7 @@ void navFolderFramework() {
         GFile *home = g_file_new_for_path(g_get_home_dir());
         gtk_file_dialog_set_initial_folder(dialogNav, home);
         g_object_unref(home);
-        gtk_file_dialog_select_folder(dialogNav, windowNav, NULL,setFilePath,windowNav);
+        gtk_file_dialog_select_folder(dialogNav, windowNav, NULL,setFilePathFramework,windowNav);
     }
 
 
