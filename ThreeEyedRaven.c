@@ -3,10 +3,11 @@
 //
 
 #include "ThreeEyedRaven.h"
-
+#include "main.h"
 #include <stdio.h>
 #include <gtk/gtk.h>
 #include <curl/curl.h>
+
 
 void TERcheckLogin();
 void mainWindow();
@@ -88,6 +89,8 @@ void ThreeEyedRaven() {
     widgetTER.windowLogin = gtk_window_new();
     gtk_window_set_title(GTK_WINDOW(widgetTER.windowLogin),"Login");
     gtk_window_present(GTK_WINDOW(widgetTER.windowLogin));
+    gtk_window_set_transient_for(GTK_WINDOW(widgetTER.windowLogin),windowMainDesktop);
+
 
     //Implementation of gridParent
     gridParentLogin = gtk_grid_new();
