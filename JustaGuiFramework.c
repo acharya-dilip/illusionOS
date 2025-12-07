@@ -131,6 +131,8 @@ void screenAddWidget() {
     gtk_window_set_default_size(GTK_WINDOW(windowAddWidget), 300, 300);
     gtk_window_set_title(GTK_WINDOW(windowAddWidget), "Add Widget");
     gtk_window_present(GTK_WINDOW(windowAddWidget));
+    gtk_window_set_transient_for(GTK_WINDOW(windowAddWidget),windowMainDesktop);
+
 
 
     widgetAttributeWidgets(windowAddWidget, widgetCount);
