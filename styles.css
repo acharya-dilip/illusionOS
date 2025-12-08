@@ -7,9 +7,12 @@
     background-position: center;
 }
 .TopBar{
-    background-color: darkgray;
-    border-bottom: 1px solid #666;
+    background-color: black;
+    border-bottom: 1px solid #000000;
     border-radius: 0;
+    font-weight: bold;
+    font-size:15px;
+    color: white;
 }
 .BigLabel{
     color: lightgray;
@@ -32,32 +35,40 @@
 .IconNotSoSpammy{
     background-image: url("source/1.png");
     background-position: center;
+    background-repeat: no-repeat;
 }
 .IconSendyMaily{
     background-image: url("source/2.png");
     background-position: center;
+    background-repeat: no-repeat;
 }
 .IconThreeEyedRaven{
     background-image: url("source/3.png");
     background-position: center;
+    background-repeat: no-repeat;
 }
 .IconNotSoNotSecure{
     background-image: url("source/4.png");
     background-position: center;
+    background-repeat: no-repeat;
 }
 .IconNotSoNotFallty{
     background-image: url("source/5.png");
     background-position: center;
+    background-repeat: no-repeat;
 }
 .IconJustaGuiFramework{
     background-image: url("source/6.png");
     background-position: center;
+    background-repeat: no-repeat;
 }
 .IconNotSoSpacy{
     background-image: url("source/7.png");
     background-position: center;
+    background-repeat: no-repeat;
 }
 .IconNotSoNotSpooky{
     background-image: url("source/8.png");
     background-position: center;
+    background-repeat: no-repeat;
 }
