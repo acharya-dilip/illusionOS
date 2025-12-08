@@ -22,7 +22,8 @@ This OS features apps like:
 - Use the programs as you'd normally use or check out the program's gh repo for more specific usage instructions
 
 
-# ARCH LIUNX BUILD INSTRUCTIONS
+# Demo Video
+- https://hc-cdn.hel1.your-objectstorage.com/s/v3/768ef7cdc054f8845ecf2d5479ac0d65f38349dd_demo.mp4
 
 # Arch Linux Build Instructions
 | Commands                                            | What They Do?                     |
