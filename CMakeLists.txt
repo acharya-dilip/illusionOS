@@ -5,6 +5,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRD ON)
 
 # Find GTK4 with pkg-config
+set(PKG_CONFIG_EXECUTABLE "pkgconf")
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK4 REQUIRED gtk4)
 pkg_check_modules(CURL REQUIRED libcurl)
@@ -15,14 +16,11 @@ include_directories(${CURL_INCLUDE_DIRS})
 link_directories(${GTK4_LIBRARY_DIRS})
 link_directories(${CURL_LIBRARY_DIRS})
 
-
 add_executable(illusionOS main.c
         NotSoSpammy.c
         NotSoSpammy.h
         SendyMaily.c
         SendyMaily.h
-        NotSoSpammy.c
-        NotSoSpammy.h
         ThreeEyedRaven.c
         ThreeEyedRaven.h
         NotSoNotSecure.c
@@ -36,7 +34,8 @@ add_executable(illusionOS main.c
         NotSoSpacy.h
         NotSoNotSpooky.c
         NotSoNotSpooky.h
-        NotSoNotSpooky.c
+        JustaGuiFramework.c
+        main.c
 )
 
 target_link_libraries(${PROJECT_NAME}
