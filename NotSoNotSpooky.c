@@ -380,7 +380,7 @@ GtkCssProvider *provider = NULL;
 void performSpooky() {
     spookyStatus = 1;
     system("gst-play-1.0 ./src/sounds/scream.mp3 >/dev/null 2>&1 &");
-    sleep(2);
+    Sleep(2);
     //COnnects the spookyStyles.css stylesheet
     provider = gtk_css_provider_new();
     gtk_css_provider_load_from_path(provider, "spookyStyles.css");
